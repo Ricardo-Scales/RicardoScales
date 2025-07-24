@@ -29,10 +29,13 @@ function App() {
           alignItems: 'center'
         }}>
           <div style={{
-            fontSize: '28px',
-            fontFamily: "'Playfair Display', serif",
+            fontSize: '32px',
+            fontFamily: "'Dancing Script', cursive",
             color: '#C28840',
-            fontWeight: '600'
+            fontWeight: '700',
+            letterSpacing: '1px',
+            textShadow: '0 2px 4px rgba(194, 136, 64, 0.3)',
+            transform: 'rotate(-1deg)'
           }}>
             Ricardo Scales
           </div>
