@@ -3,8 +3,8 @@ import './App.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <h1 className="text-center py-20 text-4xl text-yellow-500">
+    <div style={{minHeight: '100vh', backgroundColor: 'black', color: 'white'}}>
+      <h1 style={{textAlign: 'center', paddingTop: '5rem', fontSize: '2.25rem', color: '#eab308'}}>
         Ricardo Scales - Loading...
       </h1>
     </div>
