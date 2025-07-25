@@ -133,8 +133,8 @@ function Bio() {
 
       {/* Main Bio Content */}
       <section style={{
-        backgroundColor: '#0a0a0a',
-        padding: '80px 40px'
+        backgroundColor: '#000000',
+        padding: '40px 40px 80px'
       }}>
         <div style={{
           maxWidth: '900px',
@@ -416,7 +416,7 @@ function Bio() {
 
       {/* Footer */}
       <footer style={{
-        backgroundColor: '#0a0a0a',
+        backgroundColor: '#000000',
         borderTop: '1px solid rgba(194, 136, 64, 0.2)',
         padding: '60px 40px 40px',
         color: 'white'
