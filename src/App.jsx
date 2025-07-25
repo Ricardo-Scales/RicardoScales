@@ -29,19 +29,14 @@ function App() {
           alignItems: 'center'
         }}>
           <div style={{
-            fontSize: '48px',
-            fontFamily: "'Arizonia', cursive",
+            fontSize: '52px',
+            fontFamily: "'Alex Brush', cursive",
             color: '#C28840',
             fontWeight: '400',
-            letterSpacing: '3px',
-            textShadow: '0 4px 12px rgba(194, 136, 64, 0.5), 0 0 20px rgba(194, 136, 64, 0.3)',
-            transform: 'rotate(-1.5deg)',
-            position: 'relative',
-            background: 'linear-gradient(45deg, #C28840, #E6B973, #D4AF37, #C28840)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            filter: 'drop-shadow(0 3px 6px rgba(194, 136, 64, 0.4))'
+            letterSpacing: '2px',
+            textShadow: '0 3px 8px rgba(194, 136, 64, 0.4), 0 0 15px rgba(194, 136, 64, 0.2)',
+            transform: 'rotate(-1deg)',
+            position: 'relative'
           }}>
             Ricardo Scales
           </div>
