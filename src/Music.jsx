@@ -96,11 +96,16 @@ function Music() {
             width: '232px',
             height: '232px',
             borderRadius: '50%',
-            backgroundImage: 'url("/attached_assets/ricardo upsclaed_1753392463500.png")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundColor: '#282828',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#fff',
+            fontSize: '48px',
             boxShadow: '0 4px 60px rgba(0,0,0,.5)'
-          }}></div>
+          }}>
+            RS
+          </div>
 
           <div>
             <p style={{
@@ -407,11 +412,14 @@ function Music() {
               width: '120px',
               height: '120px',
               borderRadius: '50%',
-              backgroundImage: 'url("/attached_assets/ricardo upsclaed_1753392463500.png")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              flexShrink: 0
-            }}></div>
+              backgroundColor: '#282828',
+              flexShrink: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#fff',
+              fontSize: '48px',
+            }}>RS</div>
 
             <div>
               <p style={{
