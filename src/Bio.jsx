@@ -102,7 +102,7 @@ function Bio() {
           textAlign: 'center'
         }}>
           <h1 style={{
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+            fontSize: 'clamp(3.5rem, 7vw, 6rem)',
             fontFamily: "'Playfair Display', serif",
             color: '#C28840',
             marginBottom: '20px',
