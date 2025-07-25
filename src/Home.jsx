@@ -59,13 +59,6 @@ function Home() {
               fontWeight: '400',
               transition: 'color 0.3s ease'
             }}>Bio</a>
-            <a href="#tour" style={{
-              color: 'white',
-              textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '400',
-              transition: 'color 0.3s ease'
-            }}>Tour</a>
             <a href="#music" style={{
               color: 'white',
               textDecoration: 'none',
@@ -73,13 +66,6 @@ function Home() {
               fontWeight: '400',
               transition: 'color 0.3s ease'
             }}>Music</a>
-            <a href="#merch" style={{
-              color: 'white',
-              textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '400',
-              transition: 'color 0.3s ease'
-            }}>Merch</a>
             <a href="#videos" style={{
               color: 'white',
               textDecoration: 'none',
