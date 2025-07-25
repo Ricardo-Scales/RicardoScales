@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -67,13 +66,6 @@ function Bio() {
               fontWeight: '400',
               transition: 'color 0.3s ease'
             }}>Music</Link>
-            <Link to="#videos" style={{
-              color: 'white',
-              textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '400',
-              transition: 'color 0.3s ease'
-            }}>Videos</Link>
             <Link to="/contact" style={{
               color: 'white',
               textDecoration: 'none',
@@ -149,7 +141,7 @@ function Bio() {
             margin: '0 auto 60px',
             maxWidth: '400px'
           }}></div>
-          
+
           {/* Third Stream Music */}
           <div style={{ marginBottom: '60px' }}>
             <h2 style={{
@@ -470,13 +462,13 @@ function Bio() {
             }}>
               © 2025 Ricardo Scales. All rights reserved.
             </p>
-            
+
             <div style={{
               height: '20px',
               width: '1px',
               backgroundColor: 'rgba(194, 136, 64, 0.3)'
             }}></div>
-            
+
             <p style={{
               margin: 0,
               fontFamily: "'Playfair Display', serif",

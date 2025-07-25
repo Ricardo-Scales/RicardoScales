@@ -66,13 +66,6 @@ function Home() {
               fontWeight: '400',
               transition: 'color 0.3s ease'
             }}>Music</Link>
-            <Link to="#videos" style={{
-              color: 'white',
-              textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '400',
-              transition: 'color 0.3s ease'
-            }}>Videos</Link>
             <Link to="/contact" style={{
               color: 'white',
               textDecoration: 'none',

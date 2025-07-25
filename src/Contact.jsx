@@ -61,13 +61,6 @@ function Contact() {
               fontWeight: '400',
               transition: 'color 0.3s ease'
             }}>Music</Link>
-            <Link to="#videos" style={{
-              color: 'rgba(255,255,255,0.8)',
-              textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '400',
-              transition: 'color 0.3s ease'
-            }}>Videos</Link>
             <Link to="/contact" style={{
               color: '#C28840',
               textDecoration: 'none',
