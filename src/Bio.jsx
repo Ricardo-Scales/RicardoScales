@@ -141,6 +141,14 @@ function Bio() {
           margin: '0 auto',
           textAlign: 'center'
         }}>
+          {/* Gold Divider */}
+          <div style={{
+            height: '1px',
+            background: 'linear-gradient(to right, transparent, #C28840, transparent)',
+            margin: '0 auto 60px',
+            maxWidth: '400px'
+          }}></div>
+          
           {/* Third Stream Music */}
           <div style={{ marginBottom: '60px' }}>
             <h2 style={{
