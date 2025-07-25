@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -45,41 +45,41 @@ function Home() {
             display: 'flex',
             gap: '35px'
           }}>
-            <a href="/" style={{
+            <Link to="/" style={{
               color: '#C28840',
               textDecoration: 'none',
               fontSize: '16px',
               fontWeight: '400',
               transition: 'color 0.3s ease'
-            }}>Home</a>
-            <a href="/bio" style={{
+            }}>Home</Link>
+            <Link to="/bio" style={{
               color: 'white',
               textDecoration: 'none',
               fontSize: '16px',
               fontWeight: '400',
               transition: 'color 0.3s ease'
-            }}>Bio</a>
-            <a href="/music" style={{
+            }}>Bio</Link>
+            <Link to="/music" style={{
               color: 'white',
               textDecoration: 'none',
               fontSize: '16px',
               fontWeight: '400',
               transition: 'color 0.3s ease'
-            }}>Music</a>
-            <a href="#videos" style={{
+            }}>Music</Link>
+            <Link to="#videos" style={{
               color: 'white',
               textDecoration: 'none',
               fontSize: '16px',
               fontWeight: '400',
               transition: 'color 0.3s ease'
-            }}>Videos</a>
-            <a href="/contact" style={{
+            }}>Videos</Link>
+            <Link to="/contact" style={{
               color: 'white',
               textDecoration: 'none',
               fontSize: '16px',
               fontWeight: '400',
               transition: 'color 0.3s ease'
-            }}>Contact</a>
+            }}>Contact</Link>
           </nav>
         </div>
       </header>
@@ -462,13 +462,13 @@ function Home() {
             }}>
               © 2025 Ricardo Scales. All rights reserved.
             </p>
-            
+
             <div style={{
               height: '20px',
               width: '1px',
               backgroundColor: 'rgba(194, 136, 64, 0.3)'
             }}></div>
-            
+
             <p style={{
               margin: 0,
               fontFamily: "'Playfair Display', serif",

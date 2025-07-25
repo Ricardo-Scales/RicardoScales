@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Music() {
   return (
@@ -33,47 +34,47 @@ function Music() {
             color: '#1db954',
             fontWeight: '400'
           }}>
-            <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Ricardo Scales</a>
+            <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Ricardo Scales</Link>
           </div>
           <nav style={{
             display: 'flex',
             gap: '32px'
           }}>
-            <a href="/" style={{
+            <Link to="/" style={{
               color: '#b3b3b3',
               textDecoration: 'none',
               fontSize: '14px',
               fontWeight: '500',
               transition: 'color 0.2s ease'
-            }}>Home</a>
-            <a href="/bio" style={{
+            }}>Home</Link>
+            <Link to="/bio" style={{
               color: '#b3b3b3',
               textDecoration: 'none',
               fontSize: '14px',
               fontWeight: '500',
               transition: 'color 0.2s ease'
-            }}>Bio</a>
-            <a href="/music" style={{
+            }}>Bio</Link>
+            <Link to="/music" style={{
               color: '#1db954',
               textDecoration: 'none',
               fontSize: '14px',
               fontWeight: '500',
               transition: 'color 0.2s ease'
-            }}>Music</a>
-            <a href="#videos" style={{
+            }}>Music</Link>
+            <Link to="#videos" style={{
               color: '#b3b3b3',
               textDecoration: 'none',
               fontSize: '14px',
               fontWeight: '500',
               transition: 'color 0.2s ease'
-            }}>Videos</a>
-            <a href="#contact" style={{
+            }}>Videos</Link>
+            <Link to="/contact" style={{
               color: '#b3b3b3',
               textDecoration: 'none',
               fontSize: '14px',
               fontWeight: '500',
               transition: 'color 0.2s ease'
-            }}>Contact</a>
+            }}>Contact</Link>
           </nav>
         </div>
       </header>
