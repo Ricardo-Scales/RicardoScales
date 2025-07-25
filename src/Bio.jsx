@@ -101,7 +101,7 @@ function Bio() {
       {/* Hero Section with Black & White Performance Image */}
       <section style={{
         minHeight: '60vh',
-        background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url("/attached_assets/ricardo upsclaed_1753392463500.png")',
+        background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url("/attached_assets/Pasted--1753421109014_1753421109016.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
