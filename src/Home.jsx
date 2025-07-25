@@ -82,9 +82,7 @@ function Home() {
         minHeight: '100vh',
         background: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url("/attached_assets/476309616_1144645414332615_8348618865407374253_n_1753392146607.jpg")',
         backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
         display: 'flex',
         alignItems: 'center',
         padding: '0 40px',
@@ -297,9 +295,10 @@ function Home() {
               <div style={{
                 height: '250px',
                 background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url("/attached_assets/0 0 10 300 dpi for conversion (2023_01_11 05_44_32 UTC)_1753419956252.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center center',
+                backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundColor: '#2a2a2a',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -335,9 +334,10 @@ function Home() {
               <div style={{
                 height: '250px',
                 background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url("/attached_assets/RS Yoshi 300 dpi_1753419975695.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center center',
+                backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundColor: '#2a2a2a',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -382,9 +382,10 @@ function Home() {
               <div style={{
                 height: '300px',
                 background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url("/attached_assets/RS by RKS  300 dpi (1)_1753419950459.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center center',
+                backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundColor: '#2a2a2a',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
