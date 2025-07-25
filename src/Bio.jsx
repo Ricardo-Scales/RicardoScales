@@ -59,7 +59,7 @@ function Bio() {
               fontWeight: '400',
               transition: 'color 0.3s ease'
             }}>Bio</a>
-            <a href="#music" style={{
+            <a href="/music" style={{
               color: 'white',
               textDecoration: 'none',
               fontSize: '16px',
