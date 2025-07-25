@@ -78,38 +78,10 @@ function Contact() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section style={{
-        minHeight: '70vh',
-        background: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url("/attached_assets/piano_performance_bw.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: '100px'
-      }}>
-        <div style={{
-          textAlign: 'center',
-          maxWidth: '800px',
-          padding: '0 40px'
-        }}>
-          
-          <p style={{
-            fontSize: '1.3rem',
-            color: 'rgba(255,255,255,0.9)',
-            lineHeight: '1.6',
-            marginBottom: '0'
-          }}>
-            Book the legendary pianist for your exclusive event, or reach out for collaboration opportunities
-          </p>
-        </div>
-      </section>
-
       {/* Main Contact Section */}
       <section style={{
         backgroundColor: '#0a0a0a',
-        padding: '100px 40px'
+        padding: '120px 40px'
       }}>
         <div style={{
           maxWidth: '1200px',
