@@ -244,7 +244,7 @@ function Home() {
       {/* Legacy Section */}
       <section style={{
         backgroundColor: '#C28840',
-        padding: '60px 20px',
+        padding: '40px 40px 80px',
         color: 'white'
       }}>
         <div style={{
