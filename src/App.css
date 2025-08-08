@@ -209,6 +209,43 @@ section {
   }
 }
 
+/* Legacy Section Mobile Fixes */
+.legacy-section {
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .legacy-section {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .legacy-section h2 {
+    font-size: clamp(1.3rem, 6vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .legacy-section p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .legacy-section blockquote {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 0 0 15px 0 !important;
+  }
+}
+
 /* Contact Page Styles */
 .contact-grid {
   display: grid;
