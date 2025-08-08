@@ -306,19 +306,24 @@ section {
 
 /* Legacy Section Mobile Fixes - Target actual class names */
 @media (max-width: 768px) {
-  /* Legacy section mobile styles */
+  /* Legacy section mobile styles - FORCE SINGLE COLUMN */
   .home-legacy-grid {
     display: block !important;
+    grid-template-columns: none !important;
     gap: 20px !important;
   }
 
-  .legacy-text,
   .legacy-quote {
+    margin-bottom: 30px !important;
+    width: 100% !important;
+  }
+
+  .legacy-text {
+    width: 100% !important;
     font-size: 1rem !important;
     line-height: 1.6 !important;
     word-break: break-word !important;
     overflow-wrap: break-word !important;
-    margin-bottom: 20px !important;
   }
 
   .legacy-quote blockquote {
