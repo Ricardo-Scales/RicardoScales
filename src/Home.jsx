@@ -188,56 +188,92 @@ function Home() {
       {/* Legacy Section */}
       <section style={{
         backgroundColor: '#C28840',
-        padding: '0 20px 80px'
+        padding: '60px 20px 80px',
+        display: 'flex',
+        alignItems: 'stretch',
+        minHeight: '600px'
       }}>
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto',
-          textAlign: 'center'
+          display: 'flex',
+          alignItems: 'stretch',
+          gap: '60px',
+          width: '100%'
         }}>
-          <h2 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-            fontFamily: "'Playfair Display', serif",
-            color: 'white',
-            marginBottom: '60px',
-            fontWeight: '400'
+          {/* Left Side - Title */}
+          <div style={{
+            flex: '0 0 400px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+            paddingTop: '40px'
           }}>
-            A Legacy of Musical Excellence
-          </h2>
+            <h2 style={{
+              fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+              fontFamily: "'Playfair Display', serif",
+              color: 'white',
+              fontWeight: '300',
+              lineHeight: '1.2',
+              marginBottom: '40px'
+            }}>
+              A Legacy of Musical Excellence
+            </h2>
 
-          <div className="home-legacy-grid">
-            {/* Text Section */}
-            <div className="legacy-text">
-              <p style={{
-                fontSize: '1.2rem',
-                lineHeight: '1.7',
-                color: 'rgba(255,255,255,0.95)',
-                marginBottom: '30px'
+            {/* Quote Box */}
+            <div style={{
+              borderLeft: '4px solid white',
+              paddingLeft: '30px',
+              marginTop: '20px'
+            }}>
+              <blockquote style={{
+                fontSize: '1.3rem',
+                fontStyle: 'italic',
+                color: 'white',
+                lineHeight: '1.6',
+                margin: '0 0 20px 0',
+                fontFamily: "'Playfair Display', serif"
               }}>
-                For over four decades, Ricardo Scales has redefined what it means to be a cultural ambassador through music. Known as "The Black Liberace," his extraordinary journey from overcoming a career-threatening injury to performing for presidents showcases the transformative power of artistic determination.
-              </p>
-              <p style={{
-                fontSize: '1.2rem',
-                lineHeight: '1.7',
-                color: 'rgba(255,255,255,0.95)'
-              }}>
-                From the Redwood Room to the Top of the Mark, Ricardo didn't just perform in San Francisco's most prestigious venues—he transformed them into cultural landmarks where legends came to collaborate and audiences experienced musical magic.
-              </p>
-            </div>
-
-            {/* Quote Section */}
-            <div className="legacy-quote">
-              <blockquote className="legacy-blockquote">
                 "Music is what I do; it's who I am. Each note carries the story of our collective journey, the rhythm of our shared humanity."
               </blockquote>
               <cite style={{
-                fontSize: '1.1rem',
-                color: 'white',
-                fontWeight: '600'
+                fontSize: '1rem',
+                color: 'rgba(255,255,255,0.9)',
+                fontStyle: 'normal',
+                fontWeight: '400'
               }}>
                 — Ricardo Scales
               </cite>
             </div>
+          </div>
+
+          {/* Right Side - Content */}
+          <div style={{
+            flex: '1',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            paddingLeft: '20px'
+          }}>
+            <p style={{
+              fontSize: '1.1rem',
+              lineHeight: '1.8',
+              color: 'rgba(255,255,255,0.95)',
+              marginBottom: '30px',
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: '300'
+            }}>
+              For over three decades, Ricardo Scales has been an influential force in the music world, seamlessly blending jazz, gospel, and classical traditions. As a civic virtuoso, he has dedicated his talents to cultural enrichment, performing at prestigious venues while maintaining deep community connections.
+            </p>
+            <p style={{
+              fontSize: '1.1rem',
+              lineHeight: '1.8',
+              color: 'rgba(255,255,255,0.95)',
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: '300'
+            }}>
+              His work transcends entertainment—it preserves cultural heritage while pushing artistic boundaries. Ricardo's compositions have become part of the civic landscape, creating shared experiences that unite diverse communities through the universal language of music.
+            </p>
           </div>
         </div>
       </section>

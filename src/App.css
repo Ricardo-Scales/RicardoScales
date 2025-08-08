@@ -175,18 +175,19 @@ section {
     padding: 60px 15px 40px 15px !important;
   }
 
-  /* Legacy grid mobile layout */
-  .home-legacy-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+  /* Legacy section mobile layout */
+  section[style*="display: flex"] div:first-child {
+    flex-direction: column !important;
+    gap: 40px !important;
   }
 
-  .legacy-quote {
-    padding: 30px 20px;
+  section[style*="display: flex"] div:first-child > div:first-child {
+    flex: none !important;
+    padding-top: 0 !important;
   }
 
-  .legacy-blockquote {
-    font-size: 1.1rem;
+  section[style*="display: flex"] div:first-child > div:last-child {
+    padding-left: 0 !important;
   }
 
   /* Hero text adjustments */
