@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -149,7 +148,7 @@ function Home() {
           }}>
             Ricardo Scales
           </h1>
-          
+
           <div style={{
             fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
             color: 'rgba(255,255,255,0.9)',
@@ -158,7 +157,7 @@ function Home() {
           }}>
             Pianist • Composer • Cultural Ambassador
           </div>
-          
+
           <div style={{
             display: 'flex',
             gap: '20px',
@@ -214,190 +213,33 @@ function Home() {
             A Musical Journey
           </h2>
 
+          {/* Single Musical Journey Card */}
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '30px',
-            justifyContent: 'center'
+            backgroundColor: '#1a1a1a',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            border: '1px solid rgba(194, 136, 64, 0.2)',
+            maxWidth: '800px',
+            margin: '0 auto'
           }}>
-            {/* Card 1 */}
-            <div style={{
-              backgroundColor: '#1a1a1a',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              border: '1px solid rgba(194, 136, 64, 0.3)',
-              transition: 'transform 0.3s ease, border-color 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.6)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.3)';
-            }}>
-              <img 
-                src="/attached_assets/IMG_5832_1754679855455.png" 
-                alt="Early Years" 
-                style={{
-                  width: '100%',
-                  height: '220px',
-                  objectFit: 'cover'
-                }}
-              />
-              <div style={{ padding: '25px' }}>
-                <h3 style={{
-                  fontSize: '1.4rem',
-                  color: '#C28840',
-                  marginBottom: '15px',
-                  fontWeight: '500'
-                }}>
-                  Early Virtuoso
-                </h3>
-                <p style={{
-                  fontSize: '0.95rem',
-                  color: 'rgba(255,255,255,0.9)',
-                  lineHeight: '1.6'
-                }}>
-                  Rising from conservatory training to overcome a career-threatening hand injury, Ricardo's determination established him as a formidable pianist.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div style={{
-              backgroundColor: '#1a1a1a',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              border: '1px solid rgba(194, 136, 64, 0.3)',
-              transition: 'transform 0.3s ease, border-color 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.6)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.3)';
-            }}>
-              <img 
-                src="/attached_assets/IMG_5833_1754679855455.png" 
-                alt="Third Stream" 
-                style={{
-                  width: '100%',
-                  height: '220px',
-                  objectFit: 'cover'
-                }}
-              />
-              <div style={{ padding: '25px' }}>
-                <h3 style={{
-                  fontSize: '1.4rem',
-                  color: '#C28840',
-                  marginBottom: '15px',
-                  fontWeight: '500'
-                }}>
-                  Third Stream Pioneer
-                </h3>
-                <p style={{
-                  fontSize: '0.95rem',
-                  color: 'rgba(255,255,255,0.9)',
-                  lineHeight: '1.6'
-                }}>
-                  Developing his signature fusion style, blending classical precision with jazz innovation and cultural depth.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div style={{
-              backgroundColor: '#1a1a1a',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              border: '1px solid rgba(194, 136, 64, 0.3)',
-              transition: 'transform 0.3s ease, border-color 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.6)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.3)';
-            }}>
-              <img 
-                src="/attached_assets/IMG_5834_1754679855454.png" 
-                alt="Cultural Ambassador" 
-                style={{
-                  width: '100%',
-                  height: '220px',
-                  objectFit: 'cover'
-                }}
-              />
-              <div style={{ padding: '25px' }}>
-                <h3 style={{
-                  fontSize: '1.4rem',
-                  color: '#C28840',
-                  marginBottom: '15px',
-                  fontWeight: '500'
-                }}>
-                  Cultural Ambassador
-                </h3>
-                <p style={{
-                  fontSize: '0.95rem',
-                  color: 'rgba(255,255,255,0.9)',
-                  lineHeight: '1.6'
-                }}>
-                  Performing for U.S. Presidents and international leaders, becoming America's musical ambassador to the world.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div style={{
-              backgroundColor: '#1a1a1a',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              border: '1px solid rgba(194, 136, 64, 0.3)',
-              transition: 'transform 0.3s ease, border-color 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.6)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.3)';
-            }}>
-              <img 
-                src="/attached_assets/IMG_5837_1754679855454.png" 
-                alt="Living Legend" 
-                style={{
-                  width: '100%',
-                  height: '220px',
-                  objectFit: 'cover'
-                }}
-              />
-              <div style={{ padding: '25px' }}>
-                <h3 style={{
-                  fontSize: '1.4rem',
-                  color: '#C28840',
-                  marginBottom: '15px',
-                  fontWeight: '500'
-                }}>
-                  Living Legend
-                </h3>
-                <p style={{
-                  fontSize: '0.95rem',
-                  color: 'rgba(255,255,255,0.9)',
-                  lineHeight: '1.6'
-                }}>
-                  Continuing to innovate and inspire, recently saving the Fillmore Jazz Festival and preserving cultural heritage.
-                </p>
-              </div>
+            <img 
+              src="/attached_assets/3_Musical-Journey_1753393017601.png" 
+              alt="Musical Journey" 
+              style={{
+                width: '100%',
+                height: '300px',
+                objectFit: 'cover'
+              }}
+            />
+            <div style={{ padding: '40px' }}>
+              <p style={{
+                fontSize: '1.2rem',
+                color: 'rgba(255,255,255,0.9)',
+                lineHeight: '1.8',
+                textAlign: 'center'
+              }}>
+                From classical conservatory training to becoming "The Black Liberace," Ricardo's journey spans decades of musical innovation, cultural bridge-building, and artistic excellence that has captivated audiences worldwide.
+              </p>
             </div>
           </div>
         </div>
@@ -422,7 +264,7 @@ function Home() {
           }}>
             A Legacy of Excellence
           </h2>
-          
+
           <blockquote style={{
             fontSize: 'clamp(1.1rem, 3vw, 1.3rem)',
             fontStyle: 'italic',
@@ -435,7 +277,7 @@ function Home() {
           }}>
             "I've dedicated my life to breaking down barriers through music. When they said a young Black pianist couldn't make it in the classical world, I proved them wrong. Music isn't just what I do—it's who I am."
           </blockquote>
-          
+
           <cite style={{
             fontSize: '1.1rem',
             color: '#C28840',
