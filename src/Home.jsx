@@ -136,7 +136,7 @@ function Home() {
             maxWidth: '800px'
           }}>
             <h1 style={{
-              fontSize: window.innerWidth <= 768 ? 'clamp(1.2rem, 8vw, 2.5rem)' : 'clamp(1.8rem, 6vw, 4rem)',
+              fontSize: 'clamp(1.2rem, 8vw, 2.5rem)',
               fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
               color: '#C28840',
               marginBottom: '25px',
@@ -303,11 +303,11 @@ function Home() {
 
           <div className="home-journey-grid" style={{
             display: 'grid',
-            gridTemplateColumns: window.innerWidth <= 768 ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: window.innerWidth <= 768 ? '20px' : '40px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '40px',
             alignItems: 'start',
-            padding: window.innerWidth <= 768 ? '0' : 'inherit',
-            margin: window.innerWidth <= 768 ? '0' : 'inherit'
+            padding: 'inherit',
+            margin: 'inherit'
           }}>
             <div style={{
               backgroundColor: '#2a2a2a',
@@ -329,7 +329,7 @@ function Home() {
               }}>
               </div>
               <div style={{
-                padding: window.innerWidth <= 768 ? '20px 15px' : '30px'
+                padding: '30px'
               }}>
                 <h3 style={{
                   fontSize: '1.5rem',
@@ -379,7 +379,7 @@ function Home() {
               }}>
               </div>
               <div style={{
-                padding: window.innerWidth <= 768 ? '20px 15px' : '30px'
+                padding: '30px'
               }}>
                 <h3 style={{
                   fontSize: '1.5rem',
@@ -429,7 +429,7 @@ function Home() {
               }}>
               </div>
               <div style={{
-                padding: window.innerWidth <= 768 ? '0' : '30px'
+                padding: '30px'
               }}>
                 <h3 style={{
                   fontSize: '1.5rem',
