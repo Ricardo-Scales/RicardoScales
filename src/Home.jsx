@@ -149,14 +149,7 @@ function Home() {
           }}>
             Ricardo Scales
           </h1>
-          <div style={{
-            fontSize: 'clamp(1.2rem, 4vw, 1.8rem)',
-            color: 'rgba(255,255,255,0.9)',
-            marginBottom: '40px',
-            fontStyle: 'italic'
-          }}>
-            "The Black Liberace" • "The Black Prince"
-          </div>
+          
           
           <div style={{
             display: 'flex',
