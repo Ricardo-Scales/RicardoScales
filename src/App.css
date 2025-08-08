@@ -150,20 +150,22 @@ html, body {
 }
 
 /* Mobile Styles */
-/* Force proper font loading on mobile */
-@font-face {
-  font-family: 'Inter-Mobile';
-  src: local('Inter'), local('-apple-system'), local('BlinkMacSystemFont');
-  font-display: block;
-}
-
-@font-face {
-  font-family: 'Playfair-Mobile';
-  src: local('Playfair Display'), local('Georgia'), local('Times New Roman');
-  font-display: block;
-}
-
 @media (max-width: 768px) {
+  /* Force proper text rendering on mobile */
+  *, *::before, *::after {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    -ms-hyphens: none !important;
+  }
+
   .home-header {
     padding: 12px 0;
   }

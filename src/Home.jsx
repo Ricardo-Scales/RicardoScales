@@ -137,9 +137,20 @@ function Home() {
           }}>
             <h1 style={{
               fontSize: 'clamp(1.8rem, 6vw, 4rem)',
+              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
               color: '#C28840',
               marginBottom: '25px',
-              lineHeight: '1.3'
+              fontWeight: '700',
+              lineHeight: '1.2',
+              letterSpacing: '0',
+              wordBreak: 'keep-all',
+              overflowWrap: 'normal',
+              textRendering: 'optimizeLegibility',
+              WebkitFontSmoothing: 'antialiased',
+              MozOsxFontSmoothing: 'grayscale',
+              whiteSpace: 'normal',
+              hyphens: 'none',
+              WebkitHyphens: 'none'
             }}>
               Ricardo Scales: Composer, Civic Virtuoso, Cultural Pillar
             </h1>
@@ -148,10 +159,20 @@ function Home() {
               fontSize: 'clamp(1rem, 3vw, 1.125rem)',
               color: 'rgba(255,255,255,0.9)',
               marginBottom: '35px',
-              lineHeight: '1.7'
+              lineHeight: '1.6',
+              maxWidth: '100%',
+              wordBreak: 'keep-all',
+              overflowWrap: 'normal',
+              textRendering: 'optimizeLegibility',
+              WebkitFontSmoothing: 'antialiased',
+              MozOsxFontSmoothing: 'grayscale',
+              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
+              whiteSpace: 'normal',
+              hyphens: 'none',
+              WebkitHyphens: 'none'
             }}>
-              Experience the timeless artistry of Ricardo Scales, whose musical genius transcends genres and transforms spaces. 
-              His compositions blend classical precision with jazz improvisation, creating unforgettable musical journeys that 
+              Experience the timeless artistry of Ricardo Scales, whose musical genius transcends genres and transforms spaces.
+              His compositions blend classical precision with jazz improvisation, creating unforgettable musical journeys that
               captivate audiences worldwide.
             </p>
 
@@ -273,9 +294,9 @@ function Home() {
               marginBottom: '30px',
               color: 'rgba(255,255,255,0.95)'
             }}>
-              For over three decades, Ricardo Scales has been an influential force in the music world, 
-              seamlessly blending jazz, gospel, and classical traditions. As a civic virtuoso, he has 
-              dedicated his talents to cultural enrichment, performing at prestigious venues while 
+              For over three decades, Ricardo Scales has been an influential force in the music world,
+              seamlessly blending jazz, gospel, and classical traditions. As a civic virtuoso, he has
+              dedicated his talents to cultural enrichment, performing at prestigious venues while
               maintaining deep community connections.
             </p>
 
@@ -284,9 +305,9 @@ function Home() {
               lineHeight: '1.7',
               color: 'rgba(255,255,255,0.95)'
             }}>
-              His work transcends entertainment—it preserves cultural heritage while pushing 
-              artistic boundaries. Ricardo's compositions have scored civic celebrations, historical 
-              commemorations, and intimate gatherings, each performance infused with his 
+              His work transcends entertainment—it preserves cultural heritage while pushing
+              artistic boundaries. Ricardo's compositions have scored civic celebrations, historical
+              commemorations, and intimate gatherings, each performance infused with his
               signature sophistication and emotional depth.
             </p>
           </div>
