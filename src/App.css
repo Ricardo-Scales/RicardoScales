@@ -201,8 +201,8 @@ section {
     gap: 30px !important;
   }
 
-  .home-journey-grid > div > div:last-child {
-    padding: 20px 15px !important;
+  .home-journey-grid > div:nth-child(3) > div:last-child {
+    padding: 0 !important;
   }
 
   .button-container {

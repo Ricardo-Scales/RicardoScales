@@ -447,7 +447,7 @@ function Home() {
               }}>
               </div>
               <div style={{
-                padding: '30px'
+                padding: window.innerWidth <= 768 ? '0' : '30px'
               }}>
                 <h3 style={{
                   fontSize: '1.5rem',
