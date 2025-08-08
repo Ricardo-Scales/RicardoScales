@@ -216,28 +216,39 @@ function Home() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '40px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '30px',
+            justifyContent: 'center'
           }}>
             {/* Card 1 */}
             <div style={{
               backgroundColor: '#1a1a1a',
               borderRadius: '12px',
               overflow: 'hidden',
-              border: '1px solid rgba(194, 136, 64, 0.2)'
+              border: '1px solid rgba(194, 136, 64, 0.3)',
+              transition: 'transform 0.3s ease, border-color 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.6)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.3)';
             }}>
               <img 
                 src="/attached_assets/IMG_5832_1754679855455.png" 
                 alt="Early Years" 
                 style={{
                   width: '100%',
-                  height: '200px',
+                  height: '220px',
                   objectFit: 'cover'
                 }}
               />
               <div style={{ padding: '25px' }}>
                 <h3 style={{
-                  fontSize: '1.5rem',
+                  fontSize: '1.4rem',
                   color: '#C28840',
                   marginBottom: '15px',
                   fontWeight: '500'
@@ -245,7 +256,7 @@ function Home() {
                   Early Virtuoso
                 </h3>
                 <p style={{
-                  fontSize: '1rem',
+                  fontSize: '0.95rem',
                   color: 'rgba(255,255,255,0.9)',
                   lineHeight: '1.6'
                 }}>
@@ -259,20 +270,30 @@ function Home() {
               backgroundColor: '#1a1a1a',
               borderRadius: '12px',
               overflow: 'hidden',
-              border: '1px solid rgba(194, 136, 64, 0.2)'
+              border: '1px solid rgba(194, 136, 64, 0.3)',
+              transition: 'transform 0.3s ease, border-color 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.6)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.3)';
             }}>
               <img 
                 src="/attached_assets/IMG_5833_1754679855455.png" 
                 alt="Third Stream" 
                 style={{
                   width: '100%',
-                  height: '200px',
+                  height: '220px',
                   objectFit: 'cover'
                 }}
               />
               <div style={{ padding: '25px' }}>
                 <h3 style={{
-                  fontSize: '1.5rem',
+                  fontSize: '1.4rem',
                   color: '#C28840',
                   marginBottom: '15px',
                   fontWeight: '500'
@@ -280,7 +301,7 @@ function Home() {
                   Third Stream Pioneer
                 </h3>
                 <p style={{
-                  fontSize: '1rem',
+                  fontSize: '0.95rem',
                   color: 'rgba(255,255,255,0.9)',
                   lineHeight: '1.6'
                 }}>
@@ -294,20 +315,30 @@ function Home() {
               backgroundColor: '#1a1a1a',
               borderRadius: '12px',
               overflow: 'hidden',
-              border: '1px solid rgba(194, 136, 64, 0.2)'
+              border: '1px solid rgba(194, 136, 64, 0.3)',
+              transition: 'transform 0.3s ease, border-color 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.6)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.3)';
             }}>
               <img 
                 src="/attached_assets/IMG_5834_1754679855454.png" 
                 alt="Cultural Ambassador" 
                 style={{
                   width: '100%',
-                  height: '200px',
+                  height: '220px',
                   objectFit: 'cover'
                 }}
               />
               <div style={{ padding: '25px' }}>
                 <h3 style={{
-                  fontSize: '1.5rem',
+                  fontSize: '1.4rem',
                   color: '#C28840',
                   marginBottom: '15px',
                   fontWeight: '500'
@@ -315,7 +346,7 @@ function Home() {
                   Cultural Ambassador
                 </h3>
                 <p style={{
-                  fontSize: '1rem',
+                  fontSize: '0.95rem',
                   color: 'rgba(255,255,255,0.9)',
                   lineHeight: '1.6'
                 }}>
@@ -329,20 +360,30 @@ function Home() {
               backgroundColor: '#1a1a1a',
               borderRadius: '12px',
               overflow: 'hidden',
-              border: '1px solid rgba(194, 136, 64, 0.2)'
+              border: '1px solid rgba(194, 136, 64, 0.3)',
+              transition: 'transform 0.3s ease, border-color 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.6)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.borderColor = 'rgba(194, 136, 64, 0.3)';
             }}>
               <img 
                 src="/attached_assets/IMG_5837_1754679855454.png" 
                 alt="Living Legend" 
                 style={{
                   width: '100%',
-                  height: '200px',
+                  height: '220px',
                   objectFit: 'cover'
                 }}
               />
               <div style={{ padding: '25px' }}>
                 <h3 style={{
-                  fontSize: '1.5rem',
+                  fontSize: '1.4rem',
                   color: '#C28840',
                   marginBottom: '15px',
                   fontWeight: '500'
@@ -350,7 +391,7 @@ function Home() {
                   Living Legend
                 </h3>
                 <p style={{
-                  fontSize: '1rem',
+                  fontSize: '0.95rem',
                   color: 'rgba(255,255,255,0.9)',
                   lineHeight: '1.6'
                 }}>
