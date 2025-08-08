@@ -207,7 +207,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Legacy Section with Three Cards */}
+      {/* Mustard Section */}
       <section style={{
         backgroundColor: '#C28840',
         padding: '80px 20px'
@@ -227,25 +227,68 @@ function Home() {
             A Legacy of Musical Excellence
           </h2>
 
+          <div className="home-legacy-grid">
+            {/* Text Section */}
+            <div className="legacy-text">
+              <p style={{
+                fontSize: '1.2rem',
+                lineHeight: '1.7',
+                color: 'rgba(255,255,255,0.95)',
+                marginBottom: '30px'
+              }}>
+                For over four decades, Ricardo Scales has redefined what it means to be a cultural ambassador through music. Known as "The Black Liberace," his extraordinary journey from overcoming a career-threatening injury to performing for presidents showcases the transformative power of artistic determination.
+              </p>
+              <p style={{
+                fontSize: '1.2rem',
+                lineHeight: '1.7',
+                color: 'rgba(255,255,255,0.95)'
+              }}>
+                From the Redwood Room to the Top of the Mark, Ricardo didn't just perform in San Francisco's most prestigious venues—he transformed them into cultural landmarks where legends came to collaborate and audiences experienced musical magic.
+              </p>
+            </div>
+
+            {/* Quote Section */}
+            <div className="legacy-quote">
+              <blockquote className="legacy-blockquote">
+                "Music is what I do; it's who I am. Each note carries the story of our collective journey, the rhythm of our shared humanity."
+              </blockquote>
+              <cite style={{
+                fontSize: '1.1rem',
+                color: 'white',
+                fontWeight: '600'
+              }}>
+                — Ricardo Scales
+              </cite>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Black Legacy Section with Three Cards */}
+      <section style={{
+        backgroundColor: '#000000',
+        padding: '80px 20px'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '40px',
-            marginBottom: '60px'
+            gap: '40px'
           }}>
             {/* Card 1: The Hand That Wouldn't Quit */}
             <div style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backgroundColor: '#1a1a1a',
               borderRadius: '15px',
-              padding: '40px 30px',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              textAlign: 'left'
+              padding: '40px',
+              borderLeft: '4px solid #C28840'
             }}>
               <h3 style={{
-                fontSize: '1.5rem',
+                fontSize: '1.8rem',
                 fontFamily: "'Playfair Display', serif",
-                color: 'white',
+                color: '#C28840',
                 marginBottom: '20px',
                 fontWeight: '600'
               }}>
@@ -254,33 +297,23 @@ function Home() {
               <p style={{
                 fontSize: '1rem',
                 color: 'rgba(255,255,255,0.9)',
-                lineHeight: '1.6',
-                marginBottom: '15px'
-              }}>
-                When a devastating accident threatened to end his career, Ricardo defied medical expectations and the limitations of traditional recovery.
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'rgba(255,255,255,0.9)',
                 lineHeight: '1.6'
               }}>
-                Through sheer determination and innovative techniques, he not only returned to the piano but emerged stronger, proving that true artistry transcends physical boundaries.
+                When a devastating accident paralyzed his left hand at 19, doctors declared his concert career over. But Ricardo achieved the impossible, restoring his hand through months of relentless self-therapy and proving that some dreams refuse to die.
               </p>
             </div>
 
             {/* Card 2: Where Legends Come to Play */}
             <div style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backgroundColor: '#1a1a1a',
               borderRadius: '15px',
-              padding: '40px 30px',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              textAlign: 'left'
+              padding: '40px',
+              borderLeft: '4px solid #C28840'
             }}>
               <h3 style={{
-                fontSize: '1.5rem',
+                fontSize: '1.8rem',
                 fontFamily: "'Playfair Display', serif",
-                color: 'white',
+                color: '#C28840',
                 marginBottom: '20px',
                 fontWeight: '600'
               }}>
@@ -289,33 +322,23 @@ function Home() {
               <p style={{
                 fontSize: '1rem',
                 color: 'rgba(255,255,255,0.9)',
-                lineHeight: '1.6',
-                marginBottom: '15px'
-              }}>
-                From San Francisco's prestigious Redwood Room to the iconic Top of the Mark, Ricardo transformed venues into magnetic destinations.
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'rgba(255,255,255,0.9)',
                 lineHeight: '1.6'
               }}>
-                Touring superstars like Billy Joel, Harry Connick Jr., and Liza Minnelli would abandon their hotel rooms to join him for impromptu musical collaborations.
+                From San Francisco's Redwood Room to the Top of the Mark, touring superstars like Billy Joel, Harry Connick Jr., and Liza Minnelli would abandon their hotel rooms to join Ricardo for impromptu musical collaborations.
               </p>
             </div>
 
             {/* Card 3: The Presidential Pianist */}
             <div style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backgroundColor: '#1a1a1a',
               borderRadius: '15px',
-              padding: '40px 30px',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              textAlign: 'left'
+              padding: '40px',
+              borderLeft: '4px solid #C28840'
             }}>
               <h3 style={{
-                fontSize: '1.5rem',
+                fontSize: '1.8rem',
                 fontFamily: "'Playfair Display', serif",
-                color: 'white',
+                color: '#C28840',
                 marginBottom: '20px',
                 fontWeight: '600'
               }}>
@@ -324,48 +347,11 @@ function Home() {
               <p style={{
                 fontSize: '1rem',
                 color: 'rgba(255,255,255,0.9)',
-                lineHeight: '1.6',
-                marginBottom: '15px'
-              }}>
-                When President Obama visited San Francisco, there was only one pianist the city trusted to represent its musical soul.
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'rgba(255,255,255,0.9)',
                 lineHeight: '1.6'
               }}>
-                Ricardo's performance became a defining moment, showcasing how music serves as the ultimate ambassador of culture and community.
+                Ricardo's artistry has graced the highest levels of leadership, performing for seated U.S. Presidents and Vice President Kamala Harris, serving as America's unofficial musical ambassador to the world.
               </p>
             </div>
-          </div>
-
-          {/* Quote Section */}
-          <div style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '40px',
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            borderRadius: '15px',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.2)'
-          }}>
-            <blockquote style={{
-              fontSize: '1.4rem',
-              fontStyle: 'italic',
-              color: 'white',
-              lineHeight: '1.6',
-              margin: '0 0 20px 0',
-              textAlign: 'center'
-            }}>
-              "Music is what I do; it's who I am. Each note carries the story of our collective journey, the rhythm of our shared humanity."
-            </blockquote>
-            <cite style={{
-              fontSize: '1.1rem',
-              color: 'white',
-              fontWeight: '600'
-            }}>
-              — Ricardo Scales
-            </cite>
           </div>
         </div>
       </section>
