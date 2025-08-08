@@ -69,6 +69,7 @@ section {
   transform: rotate(-1deg);
   position: relative;
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.7));
+  white-space: nowrap;
 }
 
 .home-desktop-nav {
@@ -81,9 +82,11 @@ section {
   background: none;
   border: none;
   color: #C28840;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
-  padding: 5px;
+  padding: 8px;
+  line-height: 1;
+  z-index: 1001;
 }
 
 .home-mobile-nav {
@@ -91,17 +94,18 @@ section {
   top: 100%;
   left: 0;
   right: 0;
-  background-color: rgba(0,0,0,0.95);
-  backdrop-filter: blur(10px);
+  background-color: rgba(0,0,0,0.98);
+  backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(194, 136, 64, 0.2);
-  padding: 20px 0;
+  padding: 25px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
 .home-mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 0 20px;
+  gap: 25px;
+  padding: 0 25px;
 }
 
 .home-legacy-grid {
@@ -140,7 +144,7 @@ section {
   }
   
   .home-logo {
-    font-size: 28px;
+    font-size: 24px;
     letter-spacing: 1px;
   }
   
@@ -155,7 +159,7 @@ section {
   .home-legacy-grid {
     grid-template-columns: 1fr;
     gap: 40px;
-    text-align: center;
+    text-align: left;
   }
   
   .home-journey-grid {
@@ -170,26 +174,37 @@ section {
   
   /* Adjust padding and margins for mobile */
   section {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding: 60px 15px !important;
   }
   
   /* Hero section mobile adjustments */
   .hero-content {
-    text-align: center;
-    padding: 0 20px;
+    text-align: left;
+    padding: 0;
   }
   
   /* Button container mobile */
   .button-container {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 15px !important;
   }
   
   .button-container button {
     width: 100%;
     max-width: 280px;
+  }
+  
+  /* Typography fixes for mobile */
+  h1, h2, h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }
 

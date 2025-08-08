@@ -124,7 +124,7 @@ function Home() {
         backgroundPosition: 'center',
         display: 'flex',
         alignItems: 'center',
-        padding: '0 40px',
+        padding: '100px 20px 60px',
         position: 'relative'
       }}>
         <div style={{
@@ -136,30 +136,34 @@ function Home() {
             maxWidth: '800px'
           }}>
             <h1 style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontSize: 'clamp(1.8rem, 6vw, 4rem)',
               fontFamily: "'Playfair Display', serif",
               color: '#C28840',
-              marginBottom: '30px',
+              marginBottom: '25px',
               fontWeight: '400',
-              lineHeight: '1.2',
-              letterSpacing: '-0.02em'
+              lineHeight: '1.3',
+              letterSpacing: '-0.02em',
+              wordBreak: 'normal',
+              overflowWrap: 'break-word'
             }}>
               Ricardo Scales: Composer, Civic Virtuoso, Cultural Pillar
             </h1>
 
             <p style={{
-              fontSize: '1.125rem',
+              fontSize: 'clamp(1rem, 3vw, 1.125rem)',
               color: 'rgba(255,255,255,0.9)',
-              marginBottom: '40px',
-              lineHeight: '1.6',
-              maxWidth: '600px'
+              marginBottom: '35px',
+              lineHeight: '1.7',
+              maxWidth: '100%',
+              wordBreak: 'normal',
+              overflowWrap: 'break-word'
             }}>
               Experience the timeless artistry of Ricardo Scales, whose musical genius transcends genres and transforms spaces. 
               His compositions blend classical precision with jazz improvisation, creating unforgettable musical journeys that 
               captivate audiences worldwide.
             </p>
 
-            <div style={{
+            <div className="button-container" style={{
               display: 'flex',
               gap: '20px',
               flexWrap: 'wrap'
@@ -225,10 +229,10 @@ function Home() {
       {/* Legacy Section */}
       <section style={{
         backgroundColor: '#C28840',
-        padding: '100px 40px',
+        padding: '100px 20px',
         color: 'white'
       }}>
-        <div style={{
+        <div className="home-legacy-grid" style={{
           maxWidth: '1200px',
           margin: '0 auto',
           display: 'grid',
@@ -300,7 +304,7 @@ function Home() {
       {/* Musical Journey Section */}
       <section style={{
         backgroundColor: '#1a1a1a',
-        padding: '100px 40px',
+        padding: '100px 20px',
         color: 'white'
       }}>
         <div style={{
@@ -308,19 +312,19 @@ function Home() {
           margin: '0 auto'
         }}>
           <h2 style={{
-            fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
+            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
             fontFamily: "'Playfair Display', serif",
             color: '#C28840',
             textAlign: 'center',
-            marginBottom: '80px',
+            marginBottom: '60px',
             fontWeight: '400'
           }}>
             Musical Journey
           </h2>
 
-          <div style={{
+          <div className="home-journey-grid" style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: '40px',
             alignItems: 'start',
             marginBottom: '40px'
@@ -406,10 +410,10 @@ function Home() {
             </div>
           </div>
 
-          <div style={{
+          <div className="home-cultural-card" style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 2fr',
-            gap: '80px',
+            gridTemplateColumns: '1fr',
+            gap: '40px',
             alignItems: 'center'
           }}>
             <div style={{
@@ -418,7 +422,7 @@ function Home() {
               overflow: 'hidden',
               transition: 'transform 0.3s ease',
               display: 'grid',
-              gridTemplateColumns: '1fr 2fr',
+              gridTemplateColumns: '1fr',
               alignItems: 'center'
             }}>
               <div style={{
@@ -461,7 +465,7 @@ function Home() {
       <footer style={{
         backgroundColor: '#0a0a0a',
         borderTop: '1px solid rgba(194, 136, 64, 0.2)',
-        padding: '60px 40px 40px',
+        padding: '60px 20px 40px',
         color: 'white'
       }}>
         <div style={{
