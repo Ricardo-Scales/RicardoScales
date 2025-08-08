@@ -202,7 +202,8 @@ section {
   }
 
   .home-journey-grid > div:nth-child(3) > div:last-child {
-    padding: 0 10px !important;
+    padding: 0 !important;
+    margin: 0 15px !important;
   }
 
   .button-container {
