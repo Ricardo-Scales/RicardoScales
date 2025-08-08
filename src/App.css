@@ -70,11 +70,68 @@ section {
   animation: fadeIn 1s ease-out;
 }
 
+/* Navigation Styles */
+.home-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 20px 0;
+}
+
+.home-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-logo {
+  font-size: 28px;
+  font-family: 'Playfair Display', serif;
+  color: #C28840;
+  font-weight: 600;
+}
+
+.home-desktop-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.home-desktop-nav a:hover {
+  color: #C28840 !important;
+}
+
+.home-mobile-nav {
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 20px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.home-mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
 /* Mobile Menu Button - Hidden by default */
 .mobile-menu-btn,
 .home-mobile-menu-btn,
 .music-mobile-menu-btn {
   display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 /* Mobile Responsive Styles */
@@ -87,12 +144,15 @@ section {
   }
 
   /* Hide desktop navigation */
-  nav {
+  .home-desktop-nav,
+  .music-desktop-nav,
+  nav:not(.home-mobile-nav-links):not(.music-mobile-nav-links) {
     display: none !important;
   }
 
   /* Adjust logo size */
-  header div:first-child {
+  .home-logo,
+  .music-logo {
     font-size: 24px !important;
   }
 

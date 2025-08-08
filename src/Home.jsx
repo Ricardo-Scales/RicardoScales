@@ -8,37 +8,14 @@ function Home() {
   return (
     <div>
       {/* Navigation Header */}
-      <header style={{
-        position: 'fixed',
-        top: 0,
-        width: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.9)',
-        backdropFilter: 'blur(10px)',
-        zIndex: 1000,
-        padding: '20px 0'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 20px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <div style={{
-            fontSize: '28px',
-            fontFamily: "'Playfair Display', serif",
-            color: '#C28840',
-            fontWeight: '600'
-          }}>
-            Ricardo Scales
+      <header className="home-header">
+        <div className="home-nav-container">
+          <div className="home-logo">
+            <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Ricardo Scales</Link>
           </div>
           
           {/* Desktop Navigation */}
-          <nav style={{
-            display: 'flex',
-            gap: '40px'
-          }}>
+          <nav className="home-desktop-nav">
             <Link to="/" style={{
               color: '#C28840',
               textDecoration: 'none',
@@ -87,20 +64,8 @@ function Home() {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.95)',
-            padding: '20px',
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0
-          }}>
-            <nav style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
-              alignItems: 'center'
-            }}>
+          <div className="home-mobile-nav">
+            <nav className="home-mobile-nav-links">
               <Link to="/" style={{
                 color: '#C28840',
                 textDecoration: 'none',
