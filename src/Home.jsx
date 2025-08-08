@@ -111,30 +111,36 @@ function Home() {
           padding: '0 20px'
         }}>
           <h1 style={{
-            fontSize: 'clamp(3rem, 8vw, 6rem)',
+            fontSize: 'clamp(4rem, 10vw, 8rem)',
             fontFamily: "'Playfair Display', serif",
-            marginBottom: '20px',
-            fontWeight: '400',
-            lineHeight: '1.1'
+            marginBottom: '30px',
+            fontWeight: '700',
+            lineHeight: '1',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
           }}>
-            Ricardo Scales:
+            Ricardo Scales
           </h1>
           <h2 style={{
-            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
             fontFamily: "'Playfair Display', serif",
             color: '#C28840',
-            marginBottom: '30px',
-            fontWeight: '400'
+            marginBottom: '40px',
+            fontWeight: '400',
+            fontStyle: 'italic'
           }}>
-            Composer, Civic Virtuoso, Cultural Pillar
+            "The Black Liberace"
           </h2>
           <p style={{
-            fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-            lineHeight: '1.6',
-            marginBottom: '40px',
-            color: 'rgba(255,255,255,0.9)'
+            fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+            lineHeight: '1.7',
+            marginBottom: '50px',
+            color: 'rgba(255,255,255,0.95)',
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: '300',
+            maxWidth: '900px',
+            margin: '0 auto 50px auto'
           }}>
-            Experience the timeless artistry of Ricardo Scales, whose musical genius transcends genres and transforms spaces. His compositions blend classical precision with jazz improvisation, creating unforgettable musical journeys that captivate audiences worldwide.
+            When a devastating accident paralyzed his left hand at 19, doctors declared Ricardo's concert career over. But through months of relentless self-therapy, he achieved the impossible—restoring his hand and becoming the pianist where legends like Billy Joel and Harry Connick Jr. came to play, performing for presidents and transforming San Francisco's most prestigious venues into cultural landmarks.
           </p>
           <div style={{
             display: 'flex',
