@@ -163,27 +163,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Story Section - Mustard Background */}
-      <section style={{
-        backgroundColor: '#C28840',
-        padding: '80px 20px'
-      }}>
-        <div style={{
-          maxWidth: '900px',
-          margin: '0 auto',
-          textAlign: 'center'
-        }}>
-          <p style={{
-            fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
-            lineHeight: '1.7',
-            color: 'rgba(255,255,255,0.95)',
-            fontFamily: "'Inter', sans-serif",
-            fontWeight: '300'
-          }}>
-            When a devastating accident paralyzed his left hand at 19, doctors declared Ricardo's concert career over. But through months of relentless self-therapy, he achieved the impossible—restoring his hand and becoming the pianist where legends like Billy Joel and Harry Connick Jr. came to play, performing for presidents and transforming San Francisco's most prestigious venues into cultural landmarks.
-          </p>
-        </div>
-      </section>
+      
 
       {/* Legacy Section */}
       <section style={{
