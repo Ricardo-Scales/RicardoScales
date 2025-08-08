@@ -36,17 +36,18 @@ nav a:hover {
 
 .legacy-quote {
   padding: 40px;
-  background: rgba(26, 26, 26, 0.8);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  border-left: 4px solid #C28840;
+  border-left: 4px solid white;
+  backdrop-filter: blur(10px);
 }
 
 .legacy-blockquote {
   font-size: 1.3rem;
   font-style: italic;
-  color: rgba(255,255,255,0.95);
+  color: white;
   line-height: 1.8;
-  margin: 0;
+  margin: 0 0 20px 0;
 }
 
 .legacy-text {

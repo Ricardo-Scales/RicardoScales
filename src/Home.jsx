@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -152,11 +153,22 @@ function Home() {
           <div style={{
             fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
             color: 'rgba(255,255,255,0.9)',
-            marginBottom: '40px',
+            marginBottom: '20px',
             fontStyle: 'italic'
           }}>
-            Pianist • Composer • Cultural Ambassador
+            Composer, Civic Virtuoso, Cultural Pillar
           </div>
+
+          <p style={{
+            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+            color: 'rgba(255,255,255,0.8)',
+            lineHeight: '1.6',
+            marginBottom: '40px',
+            maxWidth: '600px',
+            margin: '0 auto 40px'
+          }}>
+            Experience the timeless artistry of Ricardo Scales, whose musical genius transcends genres and transforms spaces. His compositions blend classical precision with jazz improvisation, creating unforgettable musical journeys that captivate audiences worldwide.
+          </p>
 
           <div style={{
             display: 'flex',
@@ -164,18 +176,6 @@ function Home() {
             justifyContent: 'center',
             flexWrap: 'wrap'
           }}>
-            <Link to="/music" style={{
-              backgroundColor: '#C28840',
-              color: 'white',
-              padding: '15px 30px',
-              textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '500',
-              borderRadius: '5px',
-              transition: 'all 0.3s ease'
-            }}>
-              Listen Now
-            </Link>
             <Link to="/contact" style={{
               backgroundColor: 'transparent',
               color: 'white',
@@ -187,82 +187,42 @@ function Home() {
               borderRadius: '5px',
               transition: 'all 0.3s ease'
             }}>
-              Book Event
+              Book an Event
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Musical Journey Section */}
-      <section style={{
-        backgroundColor: '#111111',
-        padding: '80px 20px'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto'
-        }}>
-          <h2 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-            fontFamily: "'Playfair Display', serif",
-            color: '#C28840',
-            textAlign: 'center',
-            marginBottom: '60px',
-            fontWeight: '400'
-          }}>
-            A Musical Journey
-          </h2>
-
-          {/* Single Musical Journey Card */}
-          <div style={{
-            backgroundColor: '#1a1a1a',
-            borderRadius: '12px',
-            overflow: 'hidden',
-            border: '1px solid rgba(194, 136, 64, 0.2)',
-            maxWidth: '800px',
-            margin: '0 auto'
-          }}>
-            <img 
-              src="/attached_assets/3_Musical-Journey_1753393017601.png" 
-              alt="Musical Journey" 
-              style={{
-                width: '100%',
-                height: '300px',
-                objectFit: 'cover'
-              }}
-            />
-            <div style={{ padding: '40px' }}>
-              <p style={{
-                fontSize: '1.2rem',
-                color: 'rgba(255,255,255,0.9)',
-                lineHeight: '1.8',
-                textAlign: 'center'
-              }}>
-                From classical conservatory training to becoming "The Black Liberace," Ricardo's journey spans decades of musical innovation, cultural bridge-building, and artistic excellence that has captivated audiences worldwide.
-              </p>
-            </div>
+            <Link to="/music" style={{
+              backgroundColor: '#C28840',
+              color: 'white',
+              padding: '15px 30px',
+              textDecoration: 'none',
+              fontSize: '16px',
+              fontWeight: '500',
+              borderRadius: '5px',
+              transition: 'all 0.3s ease'
+            }}>
+              Explore Music
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Legacy Section */}
       <section style={{
-        backgroundColor: '#222222',
+        backgroundColor: '#C28840',
         padding: '80px 20px'
       }}>
         <div style={{
-          maxWidth: '1000px',
+          maxWidth: '1200px',
           margin: '0 auto',
           textAlign: 'center'
         }}>
           <h2 style={{
             fontSize: 'clamp(2.5rem, 6vw, 4rem)',
             fontFamily: "'Playfair Display', serif",
-            color: '#C28840',
-            marginBottom: '40px',
+            color: 'white',
+            marginBottom: '60px',
             fontWeight: '400'
           }}>
-            A Legacy of Excellence
+            A Legacy of Musical Excellence
           </h2>
 
           <div className="home-legacy-grid">
@@ -272,11 +232,29 @@ function Home() {
               </blockquote>
               <cite style={{
                 fontSize: '1.1rem',
-                color: '#C28840',
+                color: 'white',
                 fontWeight: '500'
               }}>
                 — Ricardo Scales
               </cite>
+            </div>
+
+            <div className="legacy-text">
+              <p style={{
+                fontSize: '1.1rem',
+                color: 'rgba(255,255,255,0.95)',
+                lineHeight: '1.7',
+                marginBottom: '25px'
+              }}>
+                For over four decades, Ricardo Scales has been redefining the boundaries of musical expression. His innovative fusion of classical technique with jazz improvisation creates what he calls "third stream" music.
+              </p>
+              <p style={{
+                fontSize: '1.1rem',
+                color: 'rgba(255,255,255,0.95)',
+                lineHeight: '1.7'
+              }}>
+                From San Francisco's prestigious venues to intimate cultural gatherings, his performances bridge communities and inspire deep connections through the universal language of music.
+              </p>
             </div>
           </div>
         </div>
