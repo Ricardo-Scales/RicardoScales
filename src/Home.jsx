@@ -13,89 +13,112 @@ function Home() {
       fontFamily: "'Playfair Display', serif"
     }}>
       {/* Navigation Header */}
-      <header className="home-header">
-        <div className="home-nav-container">
-          <div className="home-logo">
+      <header style={{
+        position: 'fixed',
+        top: 0,
+        width: '100%',
+        backgroundColor: 'rgba(0,0,0,0.9)',
+        backdropFilter: 'blur(10px)',
+        borderBottom: '1px solid rgba(194, 136, 64, 0.2)',
+        zIndex: 1000,
+        padding: '15px 0'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 20px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <div style={{
+            fontSize: '32px',
+            fontFamily: "'Alex Brush', cursive",
+            color: '#C28840',
+            fontWeight: '400'
+          }}>
             <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Ricardo Scales</Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="home-desktop-nav">
+          <nav style={{ display: 'flex', gap: '30px' }}>
             <Link to="/" style={{
               color: '#C28840',
               textDecoration: 'none',
               fontSize: '16px',
-              fontWeight: '400',
-              transition: 'color 0.3s ease'
+              fontWeight: '400'
             }}>Home</Link>
             <Link to="/bio" style={{
               color: 'white',
               textDecoration: 'none',
               fontSize: '16px',
-              fontWeight: '400',
-              transition: 'color 0.3s ease'
+              fontWeight: '400'
             }}>Bio</Link>
             <Link to="/music" style={{
               color: 'white',
               textDecoration: 'none',
               fontSize: '16px',
-              fontWeight: '400',
-              transition: 'color 0.3s ease'
+              fontWeight: '400'
             }}>Music</Link>
             <Link to="/contact" style={{
               color: 'white',
               textDecoration: 'none',
               fontSize: '16px',
-              fontWeight: '400',
-              transition: 'color 0.3s ease'
+              fontWeight: '400'
             }}>Contact</Link>
           </nav>
 
-          {/* Mobile Hamburger Menu */}
+          {/* Mobile Menu Button */}
           <button
-            className="home-mobile-menu-btn"
+            style={{
+              display: 'none',
+              background: 'none',
+              border: 'none',
+              color: '#C28840',
+              fontSize: '24px',
+              cursor: 'pointer'
+            }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             ☰
           </button>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="home-mobile-nav">
-            <nav className="home-mobile-nav-links">
-              <Link to="/" style={{
+          <div style={{
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            right: 0,
+            backgroundColor: 'rgba(0,0,0,0.95)',
+            padding: '20px'
+          }}>
+            <nav style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px'
+            }}>
+              <Link to="/" onClick={() => setIsMenuOpen(false)} style={{
                 color: '#C28840',
                 textDecoration: 'none',
-                fontSize: '18px',
-                fontWeight: '400',
-                transition: 'color 0.3s ease',
-                padding: '10px 0'
-              }} onClick={() => setIsMenuOpen(false)}>Home</Link>
-              <Link to="/bio" style={{
+                fontSize: '18px'
+              }}>Home</Link>
+              <Link to="/bio" onClick={() => setIsMenuOpen(false)} style={{
                 color: 'white',
                 textDecoration: 'none',
-                fontSize: '18px',
-                fontWeight: '400',
-                transition: 'color 0.3s ease',
-                padding: '10px 0'
-              }} onClick={() => setIsMenuOpen(false)}>Bio</Link>
-              <Link to="/music" style={{
+                fontSize: '18px'
+              }}>Bio</Link>
+              <Link to="/music" onClick={() => setIsMenuOpen(false)} style={{
                 color: 'white',
                 textDecoration: 'none',
-                fontSize: '18px',
-                fontWeight: '400',
-                transition: 'color 0.3s ease',
-                padding: '10px 0'
-              }} onClick={() => setIsMenuOpen(false)}>Music</Link>
-              <Link to="/contact" style={{
+                fontSize: '18px'
+              }}>Music</Link>
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)} style={{
                 color: 'white',
                 textDecoration: 'none',
-                fontSize: '18px',
-                fontWeight: '400',
-                transition: 'color 0.3s ease',
-                padding: '10px 0'
-              }} onClick={() => setIsMenuOpen(false)}>Contact</Link>
+                fontSize: '18px'
+              }}>Contact</Link>
             </nav>
           </div>
         )}
@@ -104,31 +127,30 @@ function Home() {
       {/* Hero Section */}
       <section style={{
         minHeight: '100vh',
-        background: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url("/attached_assets/Untitled design (50).png")',
+        background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url("/attached_assets/ricardo upsclaed_1753392463500.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '100px 15px 0',
+        padding: '100px 20px',
         textAlign: 'center'
       }}>
         <div style={{
-          maxWidth: '900px',
+          maxWidth: '800px',
           width: '100%'
         }}>
           <h1 style={{
-            fontSize: 'clamp(2.5rem, 8vw, 6rem)',
+            fontSize: 'clamp(3rem, 8vw, 6rem)',
             fontFamily: "'Playfair Display', serif",
             color: '#C28840',
             marginBottom: '20px',
-            fontWeight: '400',
-            lineHeight: '1.1'
+            fontWeight: '400'
           }}>
             Ricardo Scales
           </h1>
           <div style={{
-            fontSize: 'clamp(1rem, 4vw, 1.5rem)',
+            fontSize: 'clamp(1.2rem, 4vw, 1.8rem)',
             color: 'rgba(255,255,255,0.9)',
             marginBottom: '30px',
             fontStyle: 'italic'
@@ -136,16 +158,15 @@ function Home() {
             "The Black Liberace" • "The Black Prince"
           </div>
           <div style={{
-            fontSize: 'clamp(0.9rem, 2.5vw, 1.25rem)',
+            fontSize: 'clamp(1rem, 3vw, 1.3rem)',
             color: '#C28840',
             fontWeight: '500',
-            letterSpacing: '1px',
+            letterSpacing: '2px',
             marginBottom: '40px'
           }}>
             PIANIST • COMPOSER • CULTURAL AMBASSADOR
           </div>
           
-          {/* Hero Buttons */}
           <div style={{
             display: 'flex',
             gap: '20px',
@@ -157,12 +178,10 @@ function Home() {
               color: 'white',
               padding: '15px 30px',
               textDecoration: 'none',
-              fontSize: 'clamp(14px, 3vw, 16px)',
+              fontSize: '16px',
               fontWeight: '500',
               borderRadius: '5px',
-              transition: 'all 0.3s ease',
-              minWidth: '120px',
-              textAlign: 'center'
+              transition: 'all 0.3s ease'
             }}>
               Listen Now
             </Link>
@@ -172,12 +191,10 @@ function Home() {
               border: '2px solid white',
               padding: '15px 30px',
               textDecoration: 'none',
-              fontSize: 'clamp(14px, 3vw, 16px)',
+              fontSize: '16px',
               fontWeight: '500',
               borderRadius: '5px',
-              transition: 'all 0.3s ease',
-              minWidth: '120px',
-              textAlign: 'center'
+              transition: 'all 0.3s ease'
             }}>
               Book Event
             </Link>
@@ -187,39 +204,28 @@ function Home() {
 
       {/* Musical Journey Section */}
       <section style={{
-        backgroundColor: '#000000',
-        padding: '60px 15px'
+        backgroundColor: '#111111',
+        padding: '80px 20px'
       }}>
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto'
         }}>
           <h2 style={{
-            fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
             fontFamily: "'Playfair Display', serif",
             color: '#C28840',
             textAlign: 'center',
-            marginBottom: '20px',
+            marginBottom: '60px',
             fontWeight: '400'
           }}>
             A Musical Journey
           </h2>
-          <p style={{
-            fontSize: 'clamp(1rem, 3vw, 1.2rem)',
-            textAlign: 'center',
-            color: 'rgba(255,255,255,0.8)',
-            marginBottom: '50px',
-            lineHeight: '1.6'
-          }}>
-            Four decades of musical excellence, cultural impact, and artistic innovation
-          </p>
 
-          {/* Cards Grid - Mobile Optimized */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '30px',
-            width: '100%'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '40px'
           }}>
             {/* Card 1 */}
             <div style={{
@@ -230,7 +236,7 @@ function Home() {
             }}>
               <img 
                 src="/attached_assets/IMG_5832_1754679855455.png" 
-                alt="Early Virtuoso" 
+                alt="Early Years" 
                 style={{
                   width: '100%',
                   height: '200px',
@@ -239,19 +245,19 @@ function Home() {
               />
               <div style={{ padding: '25px' }}>
                 <h3 style={{
-                  fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
+                  fontSize: '1.5rem',
                   color: '#C28840',
                   marginBottom: '15px',
                   fontWeight: '500'
                 }}>
-                  Early Virtuoso (1980s)
+                  Early Virtuoso
                 </h3>
                 <p style={{
-                  fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                  fontSize: '1rem',
                   color: 'rgba(255,255,255,0.9)',
                   lineHeight: '1.6'
                 }}>
-                  Rising from conservatory training to overcome a career-threatening hand injury at 19, Ricardo's determination and talent quickly established him as a formidable pianist in the competitive San Francisco music scene.
+                  Rising from conservatory training to overcome a career-threatening hand injury, Ricardo's determination established him as a formidable pianist.
                 </p>
               </div>
             </div>
@@ -265,7 +271,7 @@ function Home() {
             }}>
               <img 
                 src="/attached_assets/IMG_5833_1754679855455.png" 
-                alt="Third Stream Pioneer" 
+                alt="Third Stream" 
                 style={{
                   width: '100%',
                   height: '200px',
@@ -274,19 +280,19 @@ function Home() {
               />
               <div style={{ padding: '25px' }}>
                 <h3 style={{
-                  fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
+                  fontSize: '1.5rem',
                   color: '#C28840',
                   marginBottom: '15px',
                   fontWeight: '500'
                 }}>
-                  Third Stream Pioneer (1990s)
+                  Third Stream Pioneer
                 </h3>
                 <p style={{
-                  fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                  fontSize: '1rem',
                   color: 'rgba(255,255,255,0.9)',
                   lineHeight: '1.6'
                 }}>
-                  Throughout the 1990s, Ricardo established himself as a distinctive voice in contemporary jazz, releasing acclaimed albums and collaborating with industry luminaries while developing his characteristic fusion style.
+                  Developing his signature fusion style, blending classical precision with jazz innovation and cultural depth.
                 </p>
               </div>
             </div>
@@ -309,19 +315,19 @@ function Home() {
               />
               <div style={{ padding: '25px' }}>
                 <h3 style={{
-                  fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
+                  fontSize: '1.5rem',
                   color: '#C28840',
                   marginBottom: '15px',
                   fontWeight: '500'
                 }}>
-                  Cultural Ambassador (2000s)
+                  Cultural Ambassador
                 </h3>
                 <p style={{
-                  fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                  fontSize: '1rem',
                   color: 'rgba(255,255,255,0.9)',
                   lineHeight: '1.6'
                 }}>
-                  The new millennium brought international recognition as Ricardo performed for U.S. Presidents and global leaders, cementing his role as America's musical ambassador to the world.
+                  Performing for U.S. Presidents and international leaders, becoming America's musical ambassador to the world.
                 </p>
               </div>
             </div>
@@ -344,19 +350,19 @@ function Home() {
               />
               <div style={{ padding: '25px' }}>
                 <h3 style={{
-                  fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
+                  fontSize: '1.5rem',
                   color: '#C28840',
                   marginBottom: '15px',
                   fontWeight: '500'
                 }}>
-                  Living Legend (2010s-Present)
+                  Living Legend
                 </h3>
                 <p style={{
-                  fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                  fontSize: '1rem',
                   color: 'rgba(255,255,255,0.9)',
                   lineHeight: '1.6'
                 }}>
-                  Today, Ricardo continues to innovate and inspire, recently saving the Fillmore Jazz Festival and maintaining his position as San Francisco's most beloved cultural figure and musical treasure.
+                  Continuing to innovate and inspire, recently saving the Fillmore Jazz Festival and preserving cultural heritage.
                 </p>
               </div>
             </div>
@@ -366,31 +372,44 @@ function Home() {
 
       {/* Legacy Section */}
       <section style={{
-        backgroundColor: '#111111',
-        padding: '60px 15px'
+        backgroundColor: '#222222',
+        padding: '80px 20px'
       }}>
         <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto'
+          maxWidth: '1000px',
+          margin: '0 auto',
+          textAlign: 'center'
         }}>
-          <div className="home-legacy-grid">
-            <div>
-              <blockquote className="legacy-blockquote">
-                "I've dedicated my life to breaking down barriers through music. When they said a young Black pianist from San Francisco couldn't make it in the classical world, I proved them wrong. When they said my career was over after my hand injury, I came back stronger. Music isn't just what I do—it's who I am, and it's the bridge that connects us all."
-              </blockquote>
-              <cite className="legacy-cite">— Ricardo Scales</cite>
-            </div>
-            
-            <div>
-              <h2 className="legacy-title">A Legacy of Excellence</h2>
-              <p className="legacy-paragraph">
-                For over four decades, Ricardo Scales has redefined what it means to be a pianist in America. From his early days overcoming a devastating hand injury to becoming San Francisco's most celebrated cultural ambassador, his journey embodies the power of perseverance and artistic vision.
-              </p>
-              <p className="legacy-paragraph">
-                His performances for U.S. Presidents, collaborations with international superstars, and recent heroic efforts to save the Fillmore Jazz Festival demonstrate that true artistry extends far beyond the concert hall—it builds communities and preserves culture for future generations.
-              </p>
-            </div>
-          </div>
+          <h2 style={{
+            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+            fontFamily: "'Playfair Display', serif",
+            color: '#C28840',
+            marginBottom: '40px',
+            fontWeight: '400'
+          }}>
+            A Legacy of Excellence
+          </h2>
+          
+          <blockquote style={{
+            fontSize: 'clamp(1.1rem, 3vw, 1.3rem)',
+            fontStyle: 'italic',
+            color: 'rgba(255,255,255,0.9)',
+            lineHeight: '1.8',
+            marginBottom: '30px',
+            borderLeft: '4px solid #C28840',
+            paddingLeft: '30px',
+            textAlign: 'left'
+          }}>
+            "I've dedicated my life to breaking down barriers through music. When they said a young Black pianist couldn't make it in the classical world, I proved them wrong. Music isn't just what I do—it's who I am."
+          </blockquote>
+          
+          <cite style={{
+            fontSize: '1.1rem',
+            color: '#C28840',
+            fontWeight: '500'
+          }}>
+            — Ricardo Scales
+          </cite>
         </div>
       </section>
 
@@ -398,68 +417,26 @@ function Home() {
       <footer style={{
         backgroundColor: '#000000',
         borderTop: '1px solid rgba(194, 136, 64, 0.2)',
-        padding: '50px 20px 30px',
-        color: 'white'
+        padding: '40px 20px',
+        textAlign: 'center'
       }}>
         <div style={{
           maxWidth: '1200px',
-          margin: '0 auto',
-          textAlign: 'center'
+          margin: '0 auto'
         }}>
           <div style={{
-            fontSize: 'clamp(32px, 8vw, 48px)',
-            fontFamily: "'Playfair Display', serif",
+            fontSize: '2rem',
+            fontFamily: "'Alex Brush', cursive",
             color: '#C28840',
-            marginBottom: '30px',
-            fontWeight: '400',
-            letterSpacing: '1px'
+            marginBottom: '20px'
           }}>
             Ricardo Scales
           </div>
-
           <div style={{
-            height: '2px',
-            background: 'linear-gradient(to right, transparent, rgba(194, 136, 64, 0.6), transparent)',
-            margin: '30px auto',
-            maxWidth: '400px'
-          }}></div>
-
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '30px',
-            flexDirection: 'column',
-            fontSize: 'clamp(14px, 3vw, 16px)',
-            color: 'rgba(255,255,255,0.8)',
-            marginTop: '25px'
+            fontSize: '14px',
+            color: 'rgba(255,255,255,0.7)'
           }}>
-            <p style={{ 
-              margin: 0,
-              fontFamily: "'Playfair Display', serif",
-              fontWeight: '400'
-            }}>
-              © 2025 Ricardo Scales. All rights reserved.
-            </p>
-            
-            <div style={{
-              height: '1px',
-              width: '60px',
-              backgroundColor: 'rgba(194, 136, 64, 0.4)'
-            }}></div>
-            
-            <p style={{ 
-              margin: 0, 
-              fontStyle: 'italic',
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(13px, 2.5vw, 15px)'
-            }}>
-              Designed by <span style={{ 
-                color: '#C28840', 
-                fontWeight: '500',
-                fontStyle: 'normal'
-              }}>Marchitechs</span>
-            </p>
+            © 2025 Ricardo Scales. All rights reserved.
           </div>
         </div>
       </footer>
