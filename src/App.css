@@ -214,6 +214,11 @@ html, body {
     gap: 0;
   }
 
+  /* Fix card padding on mobile */
+  .home-journey-grid > div > div:last-child {
+    padding: 20px 15px !important;
+  }
+
   /* Adjust padding and margins for mobile */
   section {
     padding: 60px 15px !important;

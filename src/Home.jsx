@@ -361,7 +361,7 @@ function Home() {
               }}>
               </div>
               <div style={{
-                padding: '30px'
+                padding: window.innerWidth <= 768 ? '20px 15px' : '30px'
               }}>
                 <h3 style={{
                   fontSize: '1.5rem',
@@ -411,7 +411,7 @@ function Home() {
               }}>
               </div>
               <div style={{
-                padding: '30px'
+                padding: window.innerWidth <= 768 ? '20px 15px' : '30px'
               }}>
                 <h3 style={{
                   fontSize: '1.5rem',
@@ -461,7 +461,7 @@ function Home() {
               }}>
               </div>
               <div style={{
-                padding: '30px'
+                padding: window.innerWidth <= 768 ? '20px 15px' : '30px'
               }}>
                 <h3 style={{
                   fontSize: '1.5rem',
