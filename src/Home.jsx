@@ -246,73 +246,73 @@ function Home() {
         color: 'white',
         minHeight: 'auto'
       }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          width: '100%'
-        }}>
-          <div className="legacy-section">
+        <div className="legacy-section" style={{
+            maxWidth: '100%',
+            overflow: 'hidden'
+          }}>
             <h2 style={{
-              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+              fontSize: 'clamp(1.8rem, 5vw, 3rem)',
               fontFamily: "'Playfair Display', serif",
               fontWeight: '400',
-              lineHeight: '1.3',
+              lineHeight: '1.2',
               marginBottom: '30px',
               color: 'white',
-              textAlign: 'left',
-              wordWrap: 'break-word',
-              hyphens: 'auto'
+              textAlign: 'left'
             }}>
               A Legacy of Musical Excellence
             </h2>
 
-              <blockquote style={{
-              borderLeft: '4px solid rgba(255,255,255,0.3)',
-              paddingLeft: '20px',
-              fontSize: 'clamp(0.9rem, 3vw, 1.1rem)',
-              fontStyle: 'italic',
-              lineHeight: '1.5',
-              marginBottom: '20px',
-              color: 'rgba(255,255,255,0.95)',
-              margin: '0 0 20px 0',
-              textAlign: 'left',
-              wordWrap: 'break-word',
-              overflowWrap: 'break-word'
+            <div className="home-legacy-grid" style={{
+              display: 'grid',
+              gridTemplateColumns: window.innerWidth <= 768 ? '1fr' : '1fr 2fr',
+              gap: window.innerWidth <= 768 ? '30px' : '80px',
+              alignItems: 'start'
             }}>
-              "Music is what I do; it's who I am. Each note carries the story of our collective journey, the rhythm of our shared humanity."
-            </blockquote>e>
+              <div>
+                <blockquote style={{
+                  borderLeft: '4px solid rgba(255,255,255,0.3)',
+                  paddingLeft: '20px',
+                  fontSize: 'clamp(1rem, 3vw, 1.2rem)',
+                  fontStyle: 'italic',
+                  lineHeight: '1.6',
+                  marginBottom: '20px',
+                  color: 'rgba(255,255,255,0.95)',
+                  margin: '0 0 20px 0'
+                }}>
+                  "Music is what I do; it's who I am. Each note carries the story of our collective journey, the rhythm of our shared humanity."
+                </blockquote>
 
-              <cite style={{
-                fontSize: '0.9rem',
-                color: 'rgba(255,255,255,0.8)',
-                fontStyle: 'normal',
-                display: 'block',
-                marginBottom: '30px',
-                textAlign: 'left'
-              }}>
-                — Ricardo Scales
-              </cite>
+                <cite style={{
+                  fontSize: '1rem',
+                  color: 'rgba(255,255,255,0.8)',
+                  fontStyle: 'normal',
+                  display: 'block',
+                  marginBottom: '30px'
+                }}>
+                  — Ricardo Scales
+                </cite>
+              </div>
 
-              <p style={{
-                fontSize: '1rem',
-                lineHeight: '1.6',
-                marginBottom: '20px',
-                color: 'rgba(255,255,255,0.95)'
-              }}>
-                For over three decades, Ricardo Scales has been an influential force in the music world, seamlessly blending jazz, gospel, and classical traditions. As a civic virtuoso, he has dedicated his talents to cultural enrichment, performing at prestigious venues while maintaining deep community connections.
-              </p>
+              <div>
+                <p style={{
+                  fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
+                  lineHeight: '1.7',
+                  marginBottom: '30px',
+                  color: 'rgba(255,255,255,0.95)'
+                }}>
+                  For over three decades, Ricardo Scales has been an influential force in the music world, seamlessly blending jazz, gospel, and classical traditions. As a civic virtuoso, he has dedicated his talents to cultural enrichment, performing at prestigious venues while maintaining deep community connections.
+                </p>
 
-              <p style={{
-              fontSize: 'clamp(0.9rem, 3vw, 1.1rem)',
-              lineHeight: '1.6',
-              color: 'rgba(255,255,255,0.95)',
-              wordWrap: 'break-word',
-              overflowWrap: 'break-word'
-            }}>
-              His work transcends entertainment—it preserves cultural heritage while pushing artistic boundaries. Ricardo's compositions have scored civic celebrations, historical commemorations, and intimate gatherings, each performance infused with his signature sophistication and emotional depth.
-            </p>
+                <p style={{
+                  fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
+                  lineHeight: '1.7',
+                  color: 'rgba(255,255,255,0.95)'
+                }}>
+                  His work transcends entertainment—it preserves cultural heritage while pushing artistic boundaries. Ricardo's compositions have scored civic celebrations, historical commemorations, and intimate gatherings, each performance infused with his signature sophistication and emotional depth.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
       </section>
 
       {/* Musical Journey Section */}
