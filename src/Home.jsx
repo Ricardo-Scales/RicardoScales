@@ -124,7 +124,7 @@ function Home() {
         backgroundPosition: 'center',
         display: 'flex',
         alignItems: 'center',
-        padding: '100px 20px 60px',
+        padding: '100px 15px 60px',
         position: 'relative'
       }}>
         <div style={{
