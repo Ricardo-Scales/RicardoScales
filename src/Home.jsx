@@ -447,30 +447,23 @@ function Home() {
               }}>
               </div>
               <div style={{
-                padding: window.innerWidth <= 768 ? '20px 15px' : '30px'
+                padding: '30px'
               }}>
                 <h3 style={{
                   fontSize: '1.5rem',
                   fontFamily: "'Playfair Display', serif",
                   marginBottom: '20px',
                   color: 'white',
-                  fontWeight: '600',
-                  textRendering: 'optimizeLegibility',
-                  WebkitFontSmoothing: 'antialiased',
-                  MozOsxFontSmoothing: 'grayscale'
+                  fontWeight: '600'
                 }}>
                   Cultural Leadership
                 </h3>
                 <p style={{
                   fontSize: '1rem',
                   lineHeight: '1.6',
-                  color: 'rgba(255,255,255,0.8)',
-                  fontFamily: "'Inter', sans-serif",
-                  textRendering: 'optimizeLegibility',
-                  WebkitFontSmoothing: 'antialiased',
-                  MozOsxFontSmoothing: 'grayscale',
-                  wordBreak: 'keep-all',
-                  overflowWrap: 'normal'
+                  color: 'rgba(255,255,255,0.9)',
+                  margin: '0',
+                  fontFamily: "'Inter', sans-serif"
                 }}>
                   Today, Ricardo stands as a cultural pillar, balancing international performances with music education initiatives and civic engagement projects that bring artistic excellence to diverse communities. His leadership extends beyond the stage, fostering the next generation of musicians while preserving the rich traditions that define our cultural heritage.
                 </p>
