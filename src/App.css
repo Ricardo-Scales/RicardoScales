@@ -160,11 +160,29 @@ section {
 
 /* Media Queries */
 @media (max-width: 768px) {
-
-  .home-logo {
-    font-size: 36px;
+  /* Prevent text truncation and improve readability */
+  * {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
   }
 
+  /* Ensure proper padding for all content */
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Logo sizing */
+  .home-logo {
+    font-size: 28px !important;
+    white-space: nowrap;
+    overflow: visible !important;
+  }
+
+  /* Navigation fixes */
   .home-desktop-nav {
     display: none;
   }
@@ -173,58 +191,134 @@ section {
     display: block;
   }
 
-  .legacy-title {
-    font-size: 2rem !important;
-    text-align: left !important;
-    margin-bottom: 30px !important;
+  /* Container padding fixes */
+  .home-nav-container {
+    padding: 0 15px !important;
   }
 
+  /* Content section spacing */
+  section {
+    padding: 20px 15px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hero section mobile fixes */
+  section[style*="minHeight"] {
+    padding: 120px 15px 40px 15px !important;
+  }
+
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    font-size: clamp(1.2rem, 5vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 15px !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+  }
+
+  p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 15px !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Grid layout fixes */
   .home-legacy-grid {
     display: block !important;
     gap: 0 !important;
   }
 
-  .legacy-quote {
-    margin-bottom: 30px !important;
-  }
-
-  .legacy-quote blockquote {
-    font-size: 1rem !important;
-  }
-
-  .legacy-text p {
-    font-size: 1rem !important;
-  }
-
   .home-journey-grid {
     grid-template-columns: 1fr !important;
-    gap: 30px !important;
-  }
-
-  .home-journey-grid > div:nth-child(3) > div:last-child {
+    gap: 20px !important;
     padding: 0 !important;
-    margin: 0 15px !important;
+    margin: 0 !important;
   }
 
+  /* Card content padding */
+  .home-journey-grid > div {
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .home-journey-grid > div > div:last-child {
+    padding: 20px 15px !important;
+    margin: 0 !important;
+  }
+
+  /* Button improvements */
   .button-container {
     flex-direction: column !important;
     align-items: center !important;
+    gap: 15px !important;
+    padding: 0 15px !important;
   }
 
   .button-container button {
     width: 100% !important;
-    max-width: 300px !important;
+    max-width: 280px !important;
+    padding: 12px 24px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Fix background image containers */
+  div[style*="background"] {
+    background-size: cover !important;
+    background-position: center !important;
   }
 }
 
 @media (max-width: 480px) {
   .home-logo {
-    font-size: 20px;
+    font-size: 24px !important;
+  }
+
+  .home-nav-container {
+    padding: 0 10px !important;
+  }
+
+  section {
+    padding: 15px 10px !important;
+  }
+
+  section[style*="minHeight"] {
+    padding: 100px 10px 30px 10px !important;
+  }
+
+  h1 {
+    font-size: clamp(1.1rem, 6vw, 2rem) !important;
   }
 
   .home-journey-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  .home-journey-grid > div > div:last-child {
+    padding: 15px 10px !important;
+  }
+
+  .button-container {
+    padding: 0 10px !important;
+  }
+
+  .button-container button {
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
   }
 }
 

@@ -136,21 +136,23 @@ function Home() {
             maxWidth: '800px'
           }}>
             <h1 style={{
-              fontSize: 'clamp(1.8rem, 6vw, 4rem)',
+              fontSize: window.innerWidth <= 768 ? 'clamp(1.2rem, 8vw, 2.5rem)' : 'clamp(1.8rem, 6vw, 4rem)',
               fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
               color: '#C28840',
               marginBottom: '25px',
               fontWeight: '700',
               lineHeight: '1.2',
               letterSpacing: '0',
-              wordBreak: 'keep-all',
-              overflowWrap: 'normal',
+              wordBreak: 'normal',
+              overflowWrap: 'break-word',
               textRendering: 'optimizeLegibility',
               WebkitFontSmoothing: 'antialiased',
               MozOsxFontSmoothing: 'grayscale',
               whiteSpace: 'normal',
-              hyphens: 'none',
-              WebkitHyphens: 'none'
+              hyphens: 'auto',
+              WebkitHyphens: 'auto',
+              maxWidth: '100%',
+              width: '100%'
             }}>
               Ricardo Scales: Composer, Civic Virtuoso, Cultural Pillar
             </h1>
@@ -323,9 +325,11 @@ function Home() {
 
           <div className="home-journey-grid" style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '40px',
-            alignItems: 'start'
+            gridTemplateColumns: window.innerWidth <= 768 ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: window.innerWidth <= 768 ? '20px' : '40px',
+            alignItems: 'start',
+            padding: window.innerWidth <= 768 ? '0' : 'inherit',
+            margin: window.innerWidth <= 768 ? '0' : 'inherit'
           }}>
             <div style={{
               backgroundColor: '#2a2a2a',
