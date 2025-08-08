@@ -314,59 +314,6 @@ function Home() {
           </div>
         </div>
       </section>
-            
-                </h2>
-
-                <blockquote style={{
-                  borderLeft: '4px solid rgba(255,255,255,0.3)',
-                  paddingLeft: '30px',
-                  fontSize: '1.125rem',
-                  fontStyle: 'italic',
-                  lineHeight: '1.6',
-                  marginBottom: '20px',
-                  color: 'rgba(255,255,255,0.95)',
-                  margin: '0 0 20px 0'
-                }}>
-                  "Music is what I do; it's who I am. Each note carries the story of our collective journey, the rhythm of our shared humanity."
-                </blockquote>
-
-                <cite style={{
-                  fontSize: '1rem',
-                  color: 'rgba(255,255,255,0.8)',
-                  fontStyle: 'normal'
-                }}>
-                  — Ricardo Scales
-                </cite>
-              </div>
-
-              <div>
-                <p style={{
-                  fontSize: '1.125rem',
-                  lineHeight: '1.7',
-                  marginBottom: '30px',
-                  color: 'rgba(255,255,255,0.95)'
-                }}>
-                  For over three decades, Ricardo Scales has been an influential force in the music world,
-                  seamlessly blending jazz, gospel, and classical traditions. As a civic virtuoso, he has
-                  dedicated his talents to cultural enrichment, performing at prestigious venues while
-                  maintaining deep community connections.
-                </p>
-
-                <p style={{
-                  fontSize: '1.125rem',
-                  lineHeight: '1.7',
-                  color: 'rgba(255,255,255,0.95)'
-                }}>
-                  His work transcends entertainment—it preserves cultural heritage while pushing
-                  artistic boundaries. Ricardo's compositions have scored civic celebrations, historical
-                  commemorations, and intimate gatherings, each performance infused with his
-                  signature sophistication and emotional depth.
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
 
       {/* Musical Journey Section */}
       <section style={{
