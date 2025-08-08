@@ -30,20 +30,12 @@ function Music() {
           justifyContent: 'space-between',
           alignItems: 'center'
         }}>
-          <div style={{
-            fontSize: window.innerWidth <= 768 ? '24px' : '28px',
-            fontFamily: "'Alex Brush', cursive",
-            color: '#1db954',
-            fontWeight: '400'
-          }}>
+          <div className="music-logo">
             <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Ricardo Scales</Link>
           </div>
           
           {/* Desktop Navigation */}
-          <nav style={{
-            display: window.innerWidth <= 768 ? 'none' : 'flex',
-            gap: '32px'
-          }}>
+          <nav className="music-desktop-nav">
             <Link to="/" style={{
               color: '#b3b3b3',
               textDecoration: 'none',
@@ -76,15 +68,7 @@ function Music() {
 
           {/* Mobile Hamburger Menu */}
           <button
-            style={{
-              display: window.innerWidth <= 768 ? 'block' : 'none',
-              background: 'none',
-              border: 'none',
-              color: '#1db954',
-              fontSize: '24px',
-              cursor: 'pointer',
-              padding: '5px'
-            }}
+            className="music-mobile-menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             ☰
@@ -93,23 +77,8 @@ function Music() {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div style={{
-            display: window.innerWidth <= 768 ? 'block' : 'none',
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            backgroundColor: 'rgba(18, 18, 18, 0.95)',
-            backdropFilter: 'blur(10px)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-            padding: '20px 0'
-          }}>
-            <nav style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
-              padding: '0 20px'
-            }}>
+          <div className="music-mobile-nav">
+            <nav className="music-mobile-nav-links">
               <Link to="/" style={{
                 color: '#b3b3b3',
                 textDecoration: 'none',

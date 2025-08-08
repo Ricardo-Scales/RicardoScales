@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   return (
     <div style={{
       minHeight: '100vh',
@@ -43,7 +43,7 @@ function Home() {
           }}>
             <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Ricardo Scales</a>
           </div>
-          
+
           {/* Desktop Navigation */}
           <nav style={{
             display: window.innerWidth <= 768 ? 'none' : 'flex',
@@ -444,8 +444,9 @@ function Home() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '40px'
+            gridTemplateColumns: '1fr 2fr',
+            gap: '80px',
+            alignItems: 'center'
           }}>
             <div style={{
               backgroundColor: '#2a2a2a',

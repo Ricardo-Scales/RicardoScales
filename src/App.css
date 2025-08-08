@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;500;600;700&family=Allura:wght@400&family=Arizonia&family=Alex+Brush&display=swap');
 
 /* App component styles */
@@ -35,4 +36,245 @@ nav a:hover {
 /* Apply fade in to main content */
 section {
   animation: fadeIn 1s ease-out;
+}
+
+/* Home Page Mobile Responsive Styles */
+.home-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(194, 136, 64, 0.2);
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+.home-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-logo {
+  font-size: 32px;
+  font-family: 'Alex Brush', cursive;
+  color: #C28840;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(194, 136, 64, 0.6), 0 0 20px rgba(194, 136, 64, 0.3);
+  transform: rotate(-1deg);
+  position: relative;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.7));
+}
+
+.home-desktop-nav {
+  display: flex;
+  gap: 35px;
+}
+
+.home-mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #C28840;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.home-mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(194, 136, 64, 0.2);
+  padding: 20px 0;
+}
+
+.home-mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.home-legacy-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.home-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+
+.home-cultural-card {
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .home-header {
+    padding: 12px 0;
+  }
+  
+  .home-nav-container {
+    padding: 0 15px;
+  }
+  
+  .home-logo {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+  
+  .home-desktop-nav {
+    display: none;
+  }
+  
+  .home-mobile-menu-btn {
+    display: block;
+  }
+  
+  .home-legacy-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .home-journey-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .home-cultural-card {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  /* Adjust padding and margins for mobile */
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  /* Hero section mobile adjustments */
+  .hero-content {
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  /* Button container mobile */
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px !important;
+  }
+  
+  .button-container button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-logo {
+    font-size: 20px;
+  }
+  
+  .home-journey-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  section {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+/* Contact Page Styles */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Music Page Styles */
+.music-logo {
+  font-size: 28px;
+  font-family: 'Alex Brush', cursive;
+  color: #1db954;
+  font-weight: 400;
+}
+
+.music-desktop-nav {
+  display: flex;
+  gap: 32px;
+}
+
+.music-mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #1db954;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.music-mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+}
+
+.music-mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .music-logo {
+    font-size: 24px;
+  }
+  
+  .music-desktop-nav {
+    display: none;
+  }
+  
+  .music-mobile-menu-btn {
+    display: block;
+  }
 }

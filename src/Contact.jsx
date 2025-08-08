@@ -12,38 +12,14 @@ function Contact() {
       fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
     }}>
       {/* Navigation Header */}
-      <header style={{
-        position: 'fixed',
-        top: 0,
-        width: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.95)',
-        backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(194, 136, 64, 0.2)',
-        zIndex: 1000,
-        padding: '20px 0'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 20px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <div style={{
-            fontSize: window.innerWidth <= 768 ? '24px' : '32px',
-            fontFamily: "'Alex Brush', cursive",
-            color: '#C28840',
-            fontWeight: '400'
-          }}>
+      <header className="home-header">
+        <div className="home-nav-container">
+          <div className="home-logo">
             <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Ricardo Scales</Link>
           </div>
           
           {/* Desktop Navigation */}
-          <nav style={{
-            display: window.innerWidth <= 768 ? 'none' : 'flex',
-            gap: '40px'
-          }}>
+          <nav className="home-desktop-nav">
             <Link to="/" style={{
               color: 'rgba(255,255,255,0.8)',
               textDecoration: 'none',
@@ -76,15 +52,7 @@ function Contact() {
 
           {/* Mobile Hamburger Menu */}
           <button
-            style={{
-              display: window.innerWidth <= 768 ? 'block' : 'none',
-              background: 'none',
-              border: 'none',
-              color: '#C28840',
-              fontSize: '24px',
-              cursor: 'pointer',
-              padding: '5px'
-            }}
+            className="home-mobile-menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             ☰
@@ -93,23 +61,8 @@ function Contact() {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div style={{
-            display: window.innerWidth <= 768 ? 'block' : 'none',
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.95)',
-            backdropFilter: 'blur(20px)',
-            borderBottom: '1px solid rgba(194, 136, 64, 0.2)',
-            padding: '20px 0'
-          }}>
-            <nav style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
-              padding: '0 20px'
-            }}>
+          <div className="home-mobile-nav">
+            <nav className="home-mobile-nav-links">
               <Link to="/" style={{
                 color: 'rgba(255,255,255,0.8)',
                 textDecoration: 'none',
@@ -156,12 +109,7 @@ function Contact() {
           maxWidth: '1200px',
           margin: '0 auto'
         }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '80px',
-            alignItems: 'start'
-          }}>
+          <div className="contact-grid">
             {/* Contact Information */}
             <div>
               <h2 style={{
