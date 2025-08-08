@@ -132,50 +132,15 @@ section {
   align-items: center;
 }
 
-/* Aggressive mobile text rendering fixes */
+/* Basic text rendering */
 *, *::before, *::after {
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
-}
-
-html, body {
-  -webkit-text-size-adjust: none !important;
-  -ms-text-size-adjust: none !important;
-  text-size-adjust: none !important;
-  font-synthesis: none !important;
-  -webkit-font-feature-settings: "kern" 1;
-  font-feature-settings: "kern" 1;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-  /* Force proper text rendering on mobile */
-  *, *::before, *::after {
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-    text-rendering: optimizeLegibility !important;
-    -webkit-text-size-adjust: 100% !important;
-    -ms-text-size-adjust: 100% !important;
-    text-size-adjust: 100% !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-    -ms-hyphens: none !important;
-    font-synthesis: none !important;
-    -webkit-font-feature-settings: "kern" 1 !important;
-    font-feature-settings: "kern" 1 !important;
-  }
-
-  /* Webkit-specific mobile fixes */
-  @supports (-webkit-touch-callout: none) {
-    * {
-      -webkit-font-smoothing: antialiased !important;
-      -webkit-text-stroke: 0.01em transparent !important;
-    }
-  }
 
   .home-header {
     padding: 12px 0;
@@ -203,20 +168,7 @@ html, body {
     text-align: left;
   }
 
-  /* Fix legacy section text on mobile */
-  .home-legacy-grid > div {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
-
-  .home-legacy-grid > div > * {
-    width: 100% !important;
-    max-width: 100% !important;
-    text-align: left !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-  }
+  
 
   .home-journey-grid {
     grid-template-columns: 1fr;
@@ -233,17 +185,6 @@ html, body {
     padding: 20px 15px !important;
   }
 
-  /* Adjust padding and margins for mobile */
-  section {
-    padding: 60px 15px !important;
-  }
-
-  /* Hero section mobile adjustments */
-  .hero-content {
-    text-align: left;
-    padding: 0;
-  }
-
   /* Button container mobile */
   .button-container {
     flex-direction: column;
@@ -255,12 +196,6 @@ html, body {
     width: 100%;
     max-width: 280px;
   }
-
-  /* Simple mobile text fixes */
-  * {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
 }
 
 @media (max-width: 480px) {
@@ -271,11 +206,6 @@ html, body {
   .home-journey-grid {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-
-  section {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
   }
 }
 

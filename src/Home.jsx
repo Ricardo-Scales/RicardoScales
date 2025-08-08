@@ -293,8 +293,7 @@ function Home() {
                 fontSize: '1rem',
                 lineHeight: '1.6',
                 marginBottom: '20px',
-                color: 'rgba(255,255,255,0.95)',
-                textAlign: 'left'
+                color: 'rgba(255,255,255,0.95)'
               }}>
                 For over three decades, Ricardo Scales has been an influential force in the music world, seamlessly blending jazz, gospel, and classical traditions. As a civic virtuoso, he has dedicated his talents to cultural enrichment, performing at prestigious venues while maintaining deep community connections.
               </p>
@@ -302,8 +301,7 @@ function Home() {
               <p style={{
                 fontSize: '1rem',
                 lineHeight: '1.6',
-                color: 'rgba(255,255,255,0.95)',
-                textAlign: 'left'
+                color: 'rgba(255,255,255,0.95)'
               }}>
                 His work transcends entertainment—it preserves cultural heritage while pushing artistic boundaries. Ricardo's compositions have scored civic celebrations, historical commemorations, and intimate gatherings, each performance infused with his signature sophistication and emotional depth.
               </p>
