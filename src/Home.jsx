@@ -152,17 +152,8 @@ function Home() {
           <div style={{
             fontSize: 'clamp(1.2rem, 4vw, 1.8rem)',
             color: 'rgba(255,255,255,0.9)',
-            marginBottom: '30px',
+            marginBottom: '40px',
             fontStyle: 'italic'
-          }}>
-            Pianist • Composer • Cultural Ambassador
-          </div>
-          <div style={{
-            fontSize: 'clamp(1rem, 3vw, 1.3rem)',
-            color: '#C28840',
-            fontWeight: '500',
-            letterSpacing: '2px',
-            marginBottom: '40px'
           }}>
             "The Black Liberace" • "The Black Prince"
           </div>
