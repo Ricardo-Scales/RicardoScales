@@ -121,7 +121,7 @@ function Home() {
             fontFamily: "'Playfair Display', serif",
             color: '#C28840',
             marginBottom: '50px',
-            fontWeight: '400',
+            fontWeight: '700',
             letterSpacing: '2px'
           }}>
             Composer, Civic Virtuoso, Cultural Pillar
