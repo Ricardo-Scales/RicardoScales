@@ -360,7 +360,7 @@ function Home() {
             }}>
               <div style={{
                 height: '200px',
-                backgroundImage: 'url("/attached_assets/IMG_5834_1754674558304.png")',
+                backgroundImage: 'url("/attached_assets/ricardo upsclaed_1753392463500.png")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}></div>
