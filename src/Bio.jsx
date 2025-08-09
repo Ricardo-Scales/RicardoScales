@@ -137,14 +137,6 @@ function Bio() {
           }}>
             "The Black Liberace" • "The Black Prince"
           </div>
-          <div style={{
-            fontSize: '1.25rem',
-            color: '#C28840',
-            fontWeight: '500',
-            letterSpacing: '2px'
-          }}>
-            PIANIST • COMPOSER • CULTURAL AMBASSADOR
-          </div>
         </div>
       </section>
 
