@@ -122,14 +122,14 @@ function Home() {
             Ricardo Scales
           </h1>
           <h2 style={{
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+            fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
             fontFamily: "'Playfair Display', serif",
             color: '#C28840',
             marginBottom: '50px',
             fontWeight: '400',
-            fontStyle: 'italic'
+            letterSpacing: '2px'
           }}>
-            "The Black Liberace"
+            Composer, Civic Virtuoso, Cultural Pillar
           </h2>
           <div style={{
             display: 'flex',
