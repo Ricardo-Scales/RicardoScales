@@ -10,8 +10,8 @@ function Home() {
       <header className="home-header">
         <div className="home-nav-container">
           <div className="home-logo">
-            <Link to="/" style={{ 
-              color: 'inherit', 
+            <Link to="/" style={{
+              color: 'inherit',
               textDecoration: 'none',
               fontFamily: "'Dancing Script', cursive",
               fontSize: '2rem',
@@ -426,7 +426,7 @@ function Home() {
         </div>
       </section>
 
-      
+
     </div>
   );
 }
