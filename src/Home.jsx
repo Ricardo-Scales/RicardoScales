@@ -100,7 +100,7 @@ function Home() {
         height: '100vh',
         backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("/attached_assets/ricardo upsclaed_1753392463500.png")',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center top',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
