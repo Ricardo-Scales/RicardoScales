@@ -178,6 +178,7 @@ function Home() {
         }}>
           <div style={{
             display: 'flex',
+            flexDirection: window.innerWidth <= 768 ? 'column' : 'row',
             alignItems: 'start',
             gap: '60px'
           }}>
@@ -196,14 +197,14 @@ function Home() {
               </h2>
               
               <div style={{
-                padding: '40px',
+                padding: 'clamp(20px, 4vw, 40px)',
                 background: 'rgba(255, 255, 255, 0.1)',
                 borderRadius: '12px',
                 borderLeft: '4px solid white',
                 backdropFilter: 'blur(10px)'
               }}>
                 <blockquote style={{
-                  fontSize: '1.3rem',
+                  fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
                   fontStyle: 'italic',
                   color: 'white',
                   lineHeight: '1.8',
@@ -223,13 +224,13 @@ function Home() {
             
             <div style={{
               flex: '1',
-              paddingLeft: '40px'
+              paddingLeft: window.innerWidth <= 768 ? '0' : '40px'
             }}>
               <div style={{
                 padding: '20px 0'
               }}>
                 <p style={{
-                  fontSize: '1.2rem',
+                  fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
                   lineHeight: '1.8',
                   color: 'rgba(255,255,255,0.95)',
                   marginBottom: '30px'
@@ -238,7 +239,7 @@ function Home() {
                 </p>
                 
                 <p style={{
-                  fontSize: '1.2rem',
+                  fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
                   lineHeight: '1.8',
                   color: 'rgba(255,255,255,0.95)',
                   marginBottom: '30px'
@@ -247,7 +248,7 @@ function Home() {
                 </p>
                 
                 <p style={{
-                  fontSize: '1.2rem',
+                  fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
                   lineHeight: '1.8',
                   color: 'rgba(255,255,255,0.95)'
                 }}>
