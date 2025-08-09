@@ -269,6 +269,142 @@ function Home() {
         </div>
       </section>
 
+      {/* Musical Journey Section */}
+      <section style={{
+        backgroundColor: '#000000',
+        padding: '100px 20px'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
+          <h2 style={{
+            fontSize: 'clamp(3rem, 6vw, 4.5rem)',
+            fontFamily: "'Playfair Display', serif",
+            color: '#C28840',
+            marginBottom: '60px',
+            textAlign: 'center',
+            fontWeight: '400'
+          }}>
+            Musical Journey
+          </h2>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '40px'
+          }}>
+            {/* Early Beginnings */}
+            <div style={{
+              backgroundColor: '#1a1a1a',
+              borderRadius: '15px',
+              overflow: 'hidden',
+              border: '1px solid rgba(194, 136, 64, 0.2)'
+            }}>
+              <div style={{
+                height: '200px',
+                backgroundImage: 'url("/attached_assets/IMG_5832_1754674043202.png")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}></div>
+              <div style={{
+                padding: '30px'
+              }}>
+                <h3 style={{
+                  fontSize: '1.8rem',
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#C28840',
+                  marginBottom: '20px',
+                  fontWeight: '600'
+                }}>
+                  Early Beginnings
+                </h3>
+                <p style={{
+                  fontSize: '1rem',
+                  color: 'rgba(255,255,255,0.9)',
+                  lineHeight: '1.7',
+                  fontFamily: "'Inter', sans-serif"
+                }}>
+                  Ricardo's musical journey began at age five, studying classical piano before discovering his passion for jazz improvisation. His formative years were marked by rigorous training and mentorship from legendary artists.
+                </p>
+              </div>
+            </div>
+
+            {/* Rise to Prominence */}
+            <div style={{
+              backgroundColor: '#1a1a1a',
+              borderRadius: '15px',
+              overflow: 'hidden',
+              border: '1px solid rgba(194, 136, 64, 0.2)'
+            }}>
+              <div style={{
+                height: '200px',
+                backgroundImage: 'url("/attached_assets/IMG_5833_1754674558304.png")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}></div>
+              <div style={{
+                padding: '30px'
+              }}>
+                <h3 style={{
+                  fontSize: '1.8rem',
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#C28840',
+                  marginBottom: '20px',
+                  fontWeight: '600'
+                }}>
+                  Rise to Prominence
+                </h3>
+                <p style={{
+                  fontSize: '1rem',
+                  color: 'rgba(255,255,255,0.9)',
+                  lineHeight: '1.7',
+                  fontFamily: "'Inter', sans-serif"
+                }}>
+                  Throughout the 1990s, Ricardo established himself as a distinctive voice in contemporary jazz, releasing acclaimed albums and collaborating with industry luminaries while developing his characteristic fusion style.
+                </p>
+              </div>
+            </div>
+
+            {/* Cultural Leadership */}
+            <div style={{
+              backgroundColor: '#1a1a1a',
+              borderRadius: '15px',
+              overflow: 'hidden',
+              border: '1px solid rgba(194, 136, 64, 0.2)'
+            }}>
+              <div style={{
+                height: '200px',
+                backgroundImage: 'url("/attached_assets/IMG_5834_1754674558304.png")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}></div>
+              <div style={{
+                padding: '30px'
+              }}>
+                <h3 style={{
+                  fontSize: '1.8rem',
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#C28840',
+                  marginBottom: '20px',
+                  fontWeight: '600'
+                }}>
+                  Cultural Leadership
+                </h3>
+                <p style={{
+                  fontSize: '1rem',
+                  color: 'rgba(255,255,255,0.9)',
+                  lineHeight: '1.7',
+                  fontFamily: "'Inter', sans-serif"
+                }}>
+                  Today, Ricardo stands as a cultural pillar, balancing international performances with music education initiatives and civic engagement projects that bring artistic excellence to diverse communities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Three Cards Section */}
       <section style={{
         backgroundColor: '#000000',
