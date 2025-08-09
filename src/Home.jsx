@@ -10,7 +10,13 @@ function Home() {
       <header className="home-header">
         <div className="home-nav-container">
           <div className="home-logo">
-            <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Ricardo Scales</Link>
+            <Link to="/" style={{ 
+              color: 'inherit', 
+              textDecoration: 'none',
+              fontFamily: "'Dancing Script', cursive",
+              fontSize: '2rem',
+              fontWeight: '600'
+            }}>Ricardo Scales</Link>
           </div>
 
           {/* Desktop Navigation */}
