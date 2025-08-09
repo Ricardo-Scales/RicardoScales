@@ -386,6 +386,42 @@ function Home() {
                 </p>
               </div>
             </div>
+
+            {/* Legacy Continues */}
+            <div style={{
+              backgroundColor: '#1a1a1a',
+              borderRadius: '15px',
+              overflow: 'hidden',
+              border: '1px solid rgba(194, 136, 64, 0.2)'
+            }}>
+              <div style={{
+                height: '200px',
+                backgroundImage: 'url("/attached_assets/0 0 10 300 dpi for conversion (2023_01_11 05_44_32 UTC)_1753419956252.jpg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}></div>
+              <div style={{
+                padding: '30px'
+              }}>
+                <h3 style={{
+                  fontSize: '1.8rem',
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#C28840',
+                  marginBottom: '20px',
+                  fontWeight: '600'
+                }}>
+                  Legacy Continues
+                </h3>
+                <p style={{
+                  fontSize: '1rem',
+                  color: 'rgba(255,255,255,0.9)',
+                  lineHeight: '1.7',
+                  fontFamily: "'Inter', sans-serif"
+                }}>
+                  As a composer, civic virtuoso, and cultural pillar, Ricardo's influence resonates through every performance, every student mentored, and every community touched by his artistry. His dedication continues to inspire new generations of musicians.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
