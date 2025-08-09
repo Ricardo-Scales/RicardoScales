@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -111,26 +112,28 @@ function Home() {
           padding: '0 20px'
         }}>
           <h1 style={{
-            fontSize: 'clamp(3rem, 8vw, 6rem)',
+            fontSize: 'clamp(4rem, 10vw, 8rem)',
             fontFamily: "'Playfair Display', serif",
-            marginBottom: '20px',
-            fontWeight: '400',
-            lineHeight: '1.1'
+            marginBottom: '30px',
+            fontWeight: '700',
+            lineHeight: '1',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
           }}>
             Ricardo Scales
           </h1>
           <h2 style={{
-            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
             fontFamily: "'Playfair Display', serif",
             color: '#C28840',
-            marginBottom: '30px',
-            fontWeight: '400'
+            marginBottom: '50px',
+            fontWeight: '400',
+            fontStyle: 'italic'
           }}>
-            Composer, Civic Virtuoso, Cultural Pillar
+            "The Black Liberace"
           </h2>
           <div style={{
             display: 'flex',
-            gap: '20px',
+            gap: '30px',
             justifyContent: 'center',
             flexWrap: 'wrap'
           }}>
@@ -138,9 +141,9 @@ function Home() {
               backgroundColor: 'transparent',
               color: 'white',
               border: '2px solid white',
-              padding: '15px 30px',
+              padding: '18px 40px',
               textDecoration: 'none',
-              fontSize: '16px',
+              fontSize: '18px',
               fontWeight: '500',
               borderRadius: '5px',
               transition: 'all 0.3s ease'
@@ -150,9 +153,9 @@ function Home() {
             <Link to="/music" style={{
               backgroundColor: '#C28840',
               color: 'white',
-              padding: '15px 30px',
+              padding: '18px 40px',
               textDecoration: 'none',
-              fontSize: '16px',
+              fontSize: '18px',
               fontWeight: '500',
               borderRadius: '5px',
               transition: 'all 0.3s ease'
@@ -163,105 +166,10 @@ function Home() {
         </div>
       </section>
 
-      
-
-      {/* Legacy Section */}
-      <section style={{
-        backgroundColor: '#C28840',
-        padding: '60px 20px 80px',
-        display: 'flex',
-        alignItems: 'stretch',
-        minHeight: '600px'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'flex',
-          alignItems: 'stretch',
-          gap: '60px',
-          width: '100%'
-        }}>
-          {/* Left Side - Title */}
-          <div style={{
-            flex: '0 0 400px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            paddingTop: '40px'
-          }}>
-            <h2 style={{
-              fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
-              fontFamily: "'Playfair Display', serif",
-              color: 'white',
-              fontWeight: '300',
-              lineHeight: '1.2',
-              marginBottom: '40px'
-            }}>
-              A Legacy of Musical Excellence
-            </h2>
-
-            {/* Quote Box */}
-            <div style={{
-              borderLeft: '4px solid white',
-              paddingLeft: '30px',
-              marginTop: '20px'
-            }}>
-              <blockquote style={{
-                fontSize: '1.3rem',
-                fontStyle: 'italic',
-                color: 'white',
-                lineHeight: '1.6',
-                margin: '0 0 20px 0',
-                fontFamily: "'Playfair Display', serif"
-              }}>
-                "Music is what I do; it's who I am. Each note carries the story of our collective journey, the rhythm of our shared humanity."
-              </blockquote>
-              <cite style={{
-                fontSize: '1rem',
-                color: 'rgba(255,255,255,0.9)',
-                fontStyle: 'normal',
-                fontWeight: '400'
-              }}>
-                — Ricardo Scales
-              </cite>
-            </div>
-          </div>
-
-          {/* Right Side - Content */}
-          <div style={{
-            flex: '1',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            paddingLeft: '20px'
-          }}>
-            <p style={{
-              fontSize: '1.1rem',
-              lineHeight: '1.8',
-              color: 'rgba(255,255,255,0.95)',
-              marginBottom: '30px',
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: '300'
-            }}>
-              For over three decades, Ricardo Scales has been an influential force in the music world, seamlessly blending jazz, gospel, and classical traditions. As a civic virtuoso, he has dedicated his talents to cultural enrichment, performing at prestigious venues while maintaining deep community connections.
-            </p>
-            <p style={{
-              fontSize: '1.1rem',
-              lineHeight: '1.8',
-              color: 'rgba(255,255,255,0.95)',
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: '300'
-            }}>
-              His work transcends entertainment—it preserves cultural heritage while pushing artistic boundaries. Ricardo's compositions have become part of the civic landscape, creating shared experiences that unite diverse communities through the universal language of music.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Black Legacy Section with Three Cards */}
+      {/* Three Cards Section */}
       <section style={{
         backgroundColor: '#000000',
-        padding: '80px 20px'
+        padding: '100px 20px'
       }}>
         <div style={{
           maxWidth: '1200px',
@@ -269,29 +177,29 @@ function Home() {
         }}>
           <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '30px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+              gap: '40px'
             }}>
             {/* Card 1: The Hand That Wouldn't Quit */}
             <div style={{
               backgroundColor: '#1a1a1a',
               borderRadius: '15px',
-              padding: '40px',
+              padding: '50px',
               borderLeft: '4px solid #C28840'
             }}>
               <h3 style={{
-                fontSize: '1.8rem',
+                fontSize: '2rem',
                 fontFamily: "'Playfair Display', serif",
                 color: '#C28840',
-                marginBottom: '20px',
+                marginBottom: '25px',
                 fontWeight: '600'
               }}>
                 The Hand That Wouldn't Quit
               </h3>
               <p style={{
-                fontSize: '1rem',
+                fontSize: '1.1rem',
                 color: 'rgba(255,255,255,0.9)',
-                lineHeight: '1.6'
+                lineHeight: '1.7'
               }}>
                 When a devastating accident paralyzed his left hand at 19, doctors declared his concert career over. But Ricardo achieved the impossible, restoring his hand through months of relentless self-therapy and proving that some dreams refuse to die.
               </p>
@@ -301,22 +209,22 @@ function Home() {
             <div style={{
               backgroundColor: '#1a1a1a',
               borderRadius: '15px',
-              padding: '40px',
+              padding: '50px',
               borderLeft: '4px solid #C28840'
             }}>
               <h3 style={{
-                fontSize: '1.8rem',
+                fontSize: '2rem',
                 fontFamily: "'Playfair Display', serif",
                 color: '#C28840',
-                marginBottom: '20px',
+                marginBottom: '25px',
                 fontWeight: '600'
               }}>
                 Where Legends Come to Play
               </h3>
               <p style={{
-                fontSize: '1rem',
+                fontSize: '1.1rem',
                 color: 'rgba(255,255,255,0.9)',
-                lineHeight: '1.6'
+                lineHeight: '1.7'
               }}>
                 From San Francisco's Redwood Room to the Top of the Mark, touring superstars like Billy Joel, Harry Connick Jr., and Liza Minnelli would abandon their hotel rooms to join Ricardo for impromptu musical collaborations.
               </p>
@@ -326,22 +234,22 @@ function Home() {
             <div style={{
               backgroundColor: '#1a1a1a',
               borderRadius: '15px',
-              padding: '40px',
+              padding: '50px',
               borderLeft: '4px solid #C28840'
             }}>
               <h3 style={{
-                fontSize: '1.8rem',
+                fontSize: '2rem',
                 fontFamily: "'Playfair Display', serif",
                 color: '#C28840',
-                marginBottom: '20px',
+                marginBottom: '25px',
                 fontWeight: '600'
               }}>
                 The Presidential Pianist
               </h3>
               <p style={{
-                fontSize: '1rem',
+                fontSize: '1.1rem',
                 color: 'rgba(255,255,255,0.9)',
-                lineHeight: '1.6'
+                lineHeight: '1.7'
               }}>
                 Ricardo's artistry has graced the highest levels of leadership, performing for seated U.S. Presidents and Vice President Kamala Harris, serving as America's unofficial musical ambassador to the world.
               </p>
