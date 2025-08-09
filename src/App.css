@@ -171,6 +171,36 @@ section {
   top: 100%;
   left: 0;
   right: 0;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.music-mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.music-desktop-nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.music-desktop-nav a:hover {
+  color: #1db954 !important;
+}
+
+/* Responsive styles for Music page */
+@media (max-width: 768px) {
+  .music-desktop-nav {
+    display: none;
+  }
+  
+  .music-mobile-menu-btn {
+    display: block !important;
+  }
 }
 
 .music-mobile-nav-links {

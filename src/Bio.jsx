@@ -135,10 +135,11 @@ function Bio() {
             Ricardo Scales
           </h1>
           <div style={{
-            fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
-            color: 'rgba(255,255,255,0.9)',
+            fontSize: '2.2rem',
+            color: '#C28840',
             marginBottom: '30px',
-            fontStyle: 'italic'
+            fontStyle: 'italic',
+            fontWeight: '600'
           }}>
             "The Black Liberace"
           </div>
