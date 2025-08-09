@@ -187,7 +187,7 @@ function Home() {
               paddingTop: '20px'
             }}>
               <h2 style={{
-                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                fontSize: 'clamp(3.5rem, 7vw, 6rem)',
                 fontFamily: "'Playfair Display', serif",
                 marginBottom: '40px',
                 fontWeight: '400',
