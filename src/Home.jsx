@@ -166,6 +166,99 @@ function Home() {
         </div>
       </section>
 
+      {/* Legacy Section */}
+      <section style={{
+        backgroundColor: '#C28840',
+        padding: '100px 40px',
+        color: 'white'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'start',
+            gap: '60px'
+          }}>
+            <div style={{
+              flex: '1',
+              paddingTop: '20px'
+            }}>
+              <h2 style={{
+                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                fontFamily: "'Playfair Display', serif",
+                marginBottom: '40px',
+                fontWeight: '400',
+                lineHeight: '1.2'
+              }}>
+                Legacy of Musical Excellence
+              </h2>
+              
+              <div style={{
+                padding: '40px',
+                background: 'rgba(255, 255, 255, 0.1)',
+                borderRadius: '12px',
+                borderLeft: '4px solid white',
+                backdropFilter: 'blur(10px)'
+              }}>
+                <blockquote style={{
+                  fontSize: '1.3rem',
+                  fontStyle: 'italic',
+                  color: 'white',
+                  lineHeight: '1.8',
+                  margin: '0 0 20px 0'
+                }}>
+                  "When legends like Billy Joel and Harry Connick Jr. abandon their hotel rooms to join you at the piano, you know you've transcended performance and entered the realm of musical pilgrimage."
+                </blockquote>
+                <cite style={{
+                  fontSize: '1rem',
+                  color: 'rgba(255,255,255,0.8)',
+                  fontStyle: 'normal'
+                }}>
+                  — San Francisco Chronicle
+                </cite>
+              </div>
+            </div>
+            
+            <div style={{
+              flex: '1',
+              paddingLeft: '40px'
+            }}>
+              <div style={{
+                padding: '20px 0'
+              }}>
+                <p style={{
+                  fontSize: '1.2rem',
+                  lineHeight: '1.8',
+                  color: 'rgba(255,255,255,0.95)',
+                  marginBottom: '30px'
+                }}>
+                  For over four decades, Ricardo Scales has redefined what it means to be a pianist in America. This conservatory-trained virtuoso seamlessly weaves together classical precision, jazz improvisation, gospel soul, and R&B groove.
+                </p>
+                
+                <p style={{
+                  fontSize: '1.2rem',
+                  lineHeight: '1.8',
+                  color: 'rgba(255,255,255,0.95)',
+                  marginBottom: '30px'
+                }}>
+                  From San Francisco's legendary Redwood Room to the Top of the Mark, Ricardo has transformed intimate venues into cultural landmarks. His performances for U.S. Presidents and international dignitaries have established him as America's unofficial musical ambassador.
+                </p>
+                
+                <p style={{
+                  fontSize: '1.2rem',
+                  lineHeight: '1.8',
+                  color: 'rgba(255,255,255,0.95)'
+                }}>
+                  With over 30 albums and Billboard recognition, Ricardo continues to bridge generations through the universal language of music, proving that true artistry transcends all boundaries.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Three Cards Section */}
       <section style={{
         backgroundColor: '#000000',
