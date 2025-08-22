@@ -1,882 +1,744 @@
 
-import React, { useState, useEffect } from 'react';
-import { 
-  Menu, 
-  X, 
-  Heart, 
-  Users, 
-  Trophy, 
-  Target, 
-  ArrowRight, 
-  Star, 
-  Globe, 
-  Award, 
-  BookOpen, 
-  Briefcase, 
-  Crown, 
-  HandHeart, 
-  ChevronLeft, 
-  ChevronRight, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Copy, 
+import { useState } from "react";
+import {
+  Menu,
+  X,
+  ArrowRight,
+  HeartHandshake,
+  Users2,
+  GraduationCap,
+  Building2,
+  Globe,
+  Megaphone,
+  Copy,
   Check,
-  MessageSquare,
-  Lightbulb,
-  Eye
-} from 'lucide-react';
+  ExternalLink,
+  Mail,
+  Phone,
+  MapPin
+} from "lucide-react";
 
-const AAFC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
+export default function AAFCWebsite() {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [showPrompts, setShowPrompts] = useState(false);
-  const [copiedPrompt, setCopiedPrompt] = useState(null);
+  const [copiedPrompt, setCopiedPrompt] = useState("");
+  const [activeSection, setActiveSection] = useState("home");
 
-  // Smooth scroll function
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
+  const nav = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "mission", label: "Mission & Vision" },
+    { id: "programs", label: "Programs" },
+    { id: "involved", label: "Get Involved" },
+    { id: "donate", label: "Donate" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  const prompts = {
+    home: "Homepage hero with bold tagline, value prop, micro-stats, CTAs.",
+    about: "Summarize AAFC's story, mission, and who we serve.",
+    mission: "Mission + Vision with 3 value pillars.",
+    programs: "Program blurbs: Mentorship, Internship, Leadership, Community Impact.",
+    involved: "3 pathways: Join as a Teen, Partner as an Organization, Support as a Donor.",
+    donate: "Donate page with tiers, trust copy, transparency note.",
+    contact: "Contact section: form, emails, accessibility.",
   };
 
-  // Copy to clipboard function
-  const copyPrompt = async (text, index) => {
+  const programs = [
+    {
+      id: "mentorship",
+      title: "Mentorship",
+      description: "One-on-one guidance from industry professionals in arts and athletics.",
+      icon: Users2,
+      features: ["Weekly 1:1 sessions", "Industry networking", "Goal setting & tracking"]
+    },
+    {
+      id: "internships", 
+      title: "Internships",
+      description: "Real-world experience with our partner organizations and companies.",
+      icon: Building2,
+      features: ["Paid positions", "Skills development", "Professional references"]
+    },
+    {
+      id: "leadership",
+      title: "Leadership",
+      description: "Develop leadership skills through workshops and community projects.",
+      icon: GraduationCap,
+      features: ["Workshop series", "Project management", "Public speaking"]
+    },
+    {
+      id: "community",
+      title: "Community Projects",
+      description: "Lead positive change in your neighborhood through organized initiatives.",
+      icon: Globe,
+      features: ["Event planning", "Community partnerships", "Social impact measurement"]
+    }
+  ];
+
+  const missionPillars = [
+    {
+      title: "Empower Youth",
+      description: "Creating safe spaces where teens can explore their passions and develop confidence."
+    },
+    {
+      title: "Build Community",
+      description: "Connecting young people with mentors, peers, and opportunities in their local area."
+    },
+    {
+      title: "Drive Change",
+      description: "Equipping the next generation with tools to create positive social impact."
+    }
+  ];
+
+  const tiers = [
+    { amount: "$25", impact: "Supplies for one workshop", monthly: false },
+    { amount: "$100", impact: "Covers a teen's month of programming", monthly: false },
+    { amount: "$500", impact: "Scholarship for leadership micro-course", monthly: false },
+    { amount: "$50/mo", impact: "Sustain ongoing mentorship programs", monthly: true },
+  ];
+
+  const partners = ["Ava Energy", "Oakland USD", "BayTech Lab", "Arts Council", "Tech Co."];
+  
+  const testimonials = [
+    { quote: "AAFC helped me find my voice on stage and in life.", author: "A., 17 – Vocalist" },
+    { quote: "Our employees loved mentoring—real impact, real joy.", author: "CSR Lead, Tech Co." },
+    { quote: "The internship turned my son into a leader.", author: "Parent, Oakland" },
+  ];
+
+  const stats = [
+    { label: "Youth Served", value: "1,200+" },
+    { label: "Partners", value: "35+" },
+    { label: "Projects", value: "50+" },
+  ];
+
+  const kpis = [
+    { label: "Retention", value: "92%" },
+    { label: "College/Career", value: "74%" },
+    { label: "New Sites", value: "6" },
+  ];
+
+  // Enhanced copy function with feedback
+  const copyPrompt = async (sectionId) => {
     try {
-      await navigator.clipboard.writeText(text);
-      setCopiedPrompt(index);
-      setTimeout(() => setCopiedPrompt(null), 2000);
+      await navigator.clipboard.writeText(prompts[sectionId]);
+      setCopiedPrompt(sectionId);
+      setTimeout(() => setCopiedPrompt(""), 2000);
     } catch (err) {
       console.error('Failed to copy text: ', err);
     }
   };
 
-  // Content prompts for each section
-  const contentPrompts = [
-    {
-      section: "Hero",
-      prompt: "Write a compelling hero section headline and description for AAFC that emphasizes youth empowerment through arts and athletics"
-    },
-    {
-      section: "About", 
-      prompt: "Create mission statement and impact metrics for AAFC showing how we've transformed lives through creative and athletic programs"
-    },
-    {
-      section: "Programs",
-      prompt: "Describe our 4 core programs: Mentorship, Internships, Leadership Development, and Community Projects with specific outcomes"
-    },
-    {
-      section: "Get Involved",
-      prompt: "Write compelling calls-to-action for teens to join, organizations to partner, and donors to support AAFC"
-    },
-    {
-      section: "Testimonials",
-      prompt: "Create authentic testimonials from program participants, mentors, and community partners highlighting AAFC's impact"
-    },
-    {
-      section: "Contact",
-      prompt: "Write professional contact information and form fields for AAFC's Bay Area headquarters and program inquiries"
+  // Smooth scroll function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
+      setMobileOpen(false);
     }
-  ];
+  };
 
-  // Auto-rotate testimonials
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveTestimonial(prev => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const testimonials = [
-    {
-      name: "Maria Rodriguez",
-      role: "Program Graduate",
-      quote: "AAFC changed my life. Through their mentorship program, I discovered my passion for digital art and now I'm studying graphic design at SF State.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150"
-    },
-    {
-      name: "James Wilson", 
-      role: "Basketball Mentor",
-      quote: "Seeing these kids grow not just as athletes but as leaders in their community is incredibly rewarding. AAFC creates real change.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150"
-    },
-    {
-      name: "Dr. Sarah Chen",
-      role: "Partner Organization",
-      quote: "Our partnership with AAFC has allowed us to reach underserved youth in ways we never thought possible. Their impact is measurable and lasting.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150"
-    }
-  ];
-
-  const partners = [
-    { name: "Golden State Warriors", logo: "GSW" },
-    { name: "SF Museum of Modern Art", logo: "SFMOMA" },
-    { name: "Oakland Athletics", logo: "OAK" },
-    { name: "Berkeley Arts Center", logo: "BAC" },
-    { name: "Bay Area Youth Foundation", logo: "BAYF" },
-    { name: "California College of the Arts", logo: "CCA" }
-  ];
+  // Create placeholder logo with initials
+  const LogoPlaceholder = () => (
+    <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
+      AAFC
+    </div>
+  );
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Floating Prompts Panel */}
-      <div className={`fixed top-20 right-4 z-40 transition-transform duration-300 ${showPrompts ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="bg-white rounded-lg shadow-xl border border-gray-200 w-80 max-h-96 overflow-y-auto">
-          <div className="p-4 border-b border-gray-200 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Lightbulb className="w-5 h-5 text-blue-600" />
-              <h3 className="font-semibold text-gray-800">Content Prompts</h3>
+    <div className="min-h-screen bg-neutral-50 text-neutral-900">
+      {/* Top Bar */}
+      <header className="sticky top-0 z-40 backdrop-blur bg-white/95 border-b border-neutral-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <LogoPlaceholder />
+            <div className="leading-tight">
+              <p className="font-semibold tracking-tight">Artists & Athletes for Change</p>
+              <p className="text-xs text-neutral-500">Youth • Creativity • Community Impact</p>
             </div>
-            <button 
-              onClick={() => setShowPrompts(false)}
-              className="text-gray-500 hover:text-gray-700"
-            >
-              <X className="w-4 h-4" />
-            </button>
           </div>
-          <div className="p-2">
-            {contentPrompts.map((item, index) => (
-              <div key={index} className="p-3 border border-gray-100 rounded-lg mb-2 hover:bg-gray-50">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-medium text-sm text-blue-600">{item.section}</span>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-6">
+            {nav.map((n) => (
+              <button 
+                key={n.id} 
+                onClick={() => scrollToSection(n.id)}
+                className={`text-sm transition-colors ${
+                  activeSection === n.id ? 'text-black font-medium' : 'text-neutral-600 hover:text-black'
+                }`}
+              >
+                {n.label}
+              </button>
+            ))}
+            <button 
+              onClick={() => scrollToSection('donate')}
+              className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-black text-white text-sm shadow-sm hover:shadow-md transition-shadow"
+            >
+              <HeartHandshake className="h-4 w-4" /> Donate
+            </button>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors" 
+            onClick={() => setMobileOpen(!mobileOpen)} 
+            aria-label="Toggle navigation"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {mobileOpen && (
+          <div className="md:hidden border-t border-neutral-200 bg-white">
+            <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
+              {nav.map((n) => (
+                <button 
+                  key={n.id} 
+                  onClick={() => scrollToSection(n.id)}
+                  className="block w-full text-left py-2 text-neutral-700 hover:text-black transition-colors"
+                >
+                  {n.label}
+                </button>
+              ))}
+              <button 
+                onClick={() => scrollToSection('donate')}
+                className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-black text-white text-sm mt-4"
+              >
+                <HeartHandshake className="h-4 w-4" /> Donate
+              </button>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Floating Prompts Button */}
+      <button
+        onClick={() => setShowPrompts(!showPrompts)}
+        className="fixed bottom-6 right-6 z-50 rounded-full p-3 shadow-lg bg-white border-2 border-neutral-200 hover:shadow-xl hover:border-neutral-300 transition-all"
+        aria-label="Toggle content prompts"
+      >
+        <Megaphone className="h-5 w-5 text-neutral-700" />
+      </button>
+
+      {/* Prompts Panel */}
+      {showPrompts && (
+        <aside className="fixed bottom-24 right-6 z-50 w-[360px] max-h-[65vh] overflow-auto rounded-2xl border border-neutral-200 bg-white shadow-2xl">
+          <div className="p-4 border-b border-neutral-200 bg-neutral-50 rounded-t-2xl">
+            <h3 className="font-semibold text-neutral-900">Section Prompts</h3>
+            <p className="text-xs text-neutral-600 mt-1">Click to copy content prompts for each section.</p>
+          </div>
+          <div className="p-4 space-y-4 text-sm">
+            {nav.map((n) => (
+              <div key={n.id} className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <p className="font-medium text-neutral-900">{n.label}</p>
                   <button
-                    onClick={() => copyPrompt(item.prompt, index)}
-                    className="text-gray-400 hover:text-blue-600 transition-colors"
+                    onClick={() => copyPrompt(n.id)}
+                    className="flex items-center gap-1 text-xs rounded-lg px-2 py-1 border border-neutral-200 hover:bg-neutral-50 transition-colors"
                   >
-                    {copiedPrompt === index ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                    {copiedPrompt === n.id ? (
+                      <>
+                        <Check className="h-3 w-3 text-green-600" />
+                        Copied!
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-3 w-3" />
+                        Copy
+                      </>
+                    )}
                   </button>
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed">{item.prompt}</p>
+                <div className="text-xs p-3 rounded-lg bg-neutral-50 border border-neutral-200 leading-relaxed text-neutral-700">
+                  {prompts[n.id]}
+                </div>
               </div>
             ))}
           </div>
-        </div>
-      </div>
+        </aside>
+      )}
 
-      {/* Prompts Toggle Button */}
-      <button
-        onClick={() => setShowPrompts(!showPrompts)}
-        className="fixed top-24 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-300"
-      >
-        <MessageSquare className="w-5 h-5" />
-      </button>
-
-      {/* Navigation Header */}
-      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-gray-900">AAFC</span>
-            </div>
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8">
-              <button onClick={() => scrollToSection('hero')} className="text-gray-700 hover:text-blue-600 transition-colors">Home</button>
-              <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-blue-600 transition-colors">About</button>
-              <button onClick={() => scrollToSection('programs')} className="text-gray-700 hover:text-blue-600 transition-colors">Programs</button>
-              <button onClick={() => scrollToSection('get-involved')} className="text-gray-700 hover:text-blue-600 transition-colors">Get Involved</button>
-              <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-blue-600 transition-colors">Contact</button>
-            </nav>
-
-            <div className="hidden md:flex items-center space-x-4">
-              <button 
-                onClick={() => scrollToSection('donate')}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
-              >
-                Donate
-              </button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600"
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-gray-200">
-              <div className="flex flex-col space-y-4">
-                <button onClick={() => scrollToSection('hero')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Home</button>
-                <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">About</button>
-                <button onClick={() => scrollToSection('programs')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Programs</button>
-                <button onClick={() => scrollToSection('get-involved')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Get Involved</button>
-                <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">Contact</button>
+      {/* Main Content */}
+      <main>
+        {/* HOME SECTION */}
+        <section id="home" className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
+          <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+                Create. Compete. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Change.</span>
+                <br />
+                <span className="text-neutral-600">Together.</span>
+              </h1>
+              <p className="text-lg text-neutral-700 max-w-prose leading-relaxed">
+                AAFC is a teen-centered movement that fuses creativity and athletics to build community power and develop the next generation of leaders.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button 
+                  onClick={() => scrollToSection('involved')}
+                  className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 bg-black text-white font-medium hover:bg-neutral-800 transition-colors"
+                >
+                  Join Programs <ArrowRight className="h-4 w-4" />
+                </button>
                 <button 
                   onClick={() => scrollToSection('donate')}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-center"
+                  className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition-colors"
                 >
-                  Donate
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </header>
-
-      {/* Hero Section */}
-      <section id="hero" className="pt-20 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Empowering Youth Through 
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Arts & Athletics</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Artists & Athletes for Change transforms lives by providing underserved teens with mentorship, creative opportunities, and athletic programs that build confidence, leadership, and community connection.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button 
-                  onClick={() => scrollToSection('programs')}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2 text-lg font-semibold"
-                >
-                  Explore Programs <ArrowRight className="w-5 h-5" />
-                </button>
-                <button 
-                  onClick={() => scrollToSection('get-involved')}
-                  className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full hover:border-blue-600 hover:text-blue-600 transition-all duration-300 text-lg font-semibold"
-                >
-                  Get Involved
+                  Support Us <HeartHandshake className="h-4 w-4" />
                 </button>
               </div>
               
               {/* Stats Grid */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600">500+</div>
-                  <div className="text-sm text-gray-600">Youth Served</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600">95%</div>
-                  <div className="text-sm text-gray-600">Graduation Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600">50+</div>
-                  <div className="text-sm text-gray-600">Mentors</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600">8</div>
-                  <div className="text-sm text-gray-600">Years Impact</div>
-                </div>
+              <div className="grid grid-cols-3 gap-4 pt-8">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="rounded-2xl border border-neutral-200 p-4 bg-white shadow-sm">
+                    <p className="text-2xl font-bold text-neutral-900">{stat.value}</p>
+                    <p className="text-sm text-neutral-600">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
             
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-200 to-purple-200 rounded-3xl p-8 shadow-xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=400&fit=crop" 
-                  alt="Youth in arts and athletics programs"
-                  className="rounded-2xl shadow-lg w-full h-80 object-cover"
-                />
+            {/* Hero Visual */}
+            <div className="h-[400px] md:h-[500px] rounded-3xl bg-gradient-to-br from-neutral-800 to-black text-white flex flex-col items-center justify-center shadow-2xl">
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg mb-6">
+                AAFC
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl">
-                <div className="flex items-center gap-3">
-                  <Star className="w-8 h-8 text-yellow-500" />
-                  <div>
-                    <div className="font-bold text-gray-900">4.9/5</div>
-                    <div className="text-sm text-gray-600">Program Rating</div>
+              <div className="text-center">
+                <h2 className="text-2xl font-bold">Your Community</h2>
+                <p className="text-neutral-300 mt-2">Empowering Youth Through Arts & Athletics</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ABOUT SECTION */}
+        <section id="about" className="py-20 border-t border-neutral-200 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <div className="space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">About AAFC</h2>
+                <p className="text-lg text-neutral-700 leading-relaxed">
+                  Artists & Athletes for Change (AAFC) equips teens to lead—on the court, on the stage, and in the community. We believe in the power of creative expression and athletic excellence to transform lives and communities.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex items-start gap-3 p-4 rounded-xl border border-neutral-200">
+                    <Users2 className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold">Youth-First Culture</h3>
+                      <p className="text-sm text-neutral-600 mt-1">Programs designed by and for young people</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 p-4 rounded-xl border border-neutral-200">
+                    <GraduationCap className="h-6 w-6 text-purple-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold">Skills & Pathways</h3>
+                      <p className="text-sm text-neutral-600 mt-1">Clear routes to college and career success</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 p-4 rounded-xl border border-neutral-200">
+                    <Building2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold">Strong Partnerships</h3>
+                      <p className="text-sm text-neutral-600 mt-1">Collaboration with schools and organizations</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 p-4 rounded-xl border border-neutral-200">
+                    <Globe className="h-6 w-6 text-orange-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold">Community Impact</h3>
+                      <p className="text-sm text-neutral-600 mt-1">Real change in neighborhoods we serve</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We believe every young person deserves the opportunity to discover their potential through creative expression and athletic achievement, regardless of their background or circumstances.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Our Vision</h3>
-              <p className="text-gray-600">
-                A world where every young person has access to transformative programs that unlock their creative and athletic potential.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Heart className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Our Values</h3>
-              <p className="text-gray-600">
-                Inclusion, excellence, community, and the belief that every young person has unique talents worth nurturing.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 text-center">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Trophy className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Our Impact</h3>
-              <p className="text-gray-600">
-                Measurable outcomes in academic achievement, college readiness, and community leadership development.
-              </p>
-            </div>
-          </div>
-
-          {/* Impact Metrics */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white">
-            <h3 className="text-3xl font-bold text-center mb-12">Our Impact by the Numbers</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">89%</div>
-                <div className="text-blue-100">College Enrollment</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">250+</div>
-                <div className="text-blue-100">Scholarships Earned</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">75+</div>
-                <div className="text-blue-100">Community Projects</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">$2.5M</div>
-                <div className="text-blue-100">Economic Impact</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Programs Section */}
-      <section id="programs" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Programs</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Four core programs designed to meet young people where they are and help them reach their full potential.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Mentorship Program</h3>
-              </div>
-              <p className="text-gray-600 mb-6">
-                One-on-one mentoring connecting teens with successful artists and athletes who provide guidance, support, and real-world insights into creative and athletic careers.
-              </p>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  Weekly 1:1 sessions
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  Industry exposure events
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  Goal setting & tracking
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center">
-                  <Briefcase className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Internship Program</h3>
-              </div>
-              <p className="text-gray-600 mb-6">
-                Paid internships with Bay Area organizations providing hands-on experience in arts, media, sports management, and nonprofit work.
-              </p>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  8-week summer placements
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  Professional development
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  Portfolio building
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center">
-                  <Crown className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Leadership Development</h3>
-              </div>
-              <p className="text-gray-600 mb-6">
-                Comprehensive leadership training focusing on public speaking, project management, and community organizing skills for teen leaders.
-              </p>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                  Monthly workshops
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                  Peer leadership roles
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                  Community presentations
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center">
-                  <HandHeart className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Community Projects</h3>
-              </div>
-              <p className="text-gray-600 mb-6">
-                Teen-led initiatives addressing local issues through art installations, athletic events, and community service projects.
-              </p>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                  Quarterly projects
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                  Community partnerships
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                  Public showcases
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">What People Say</h2>
-            <p className="text-xl text-gray-600">Real stories from our community</p>
-          </div>
-
-          <div className="relative max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-12 text-center">
-              <div className="mb-8">
-                <img 
-                  src={testimonials[activeTestimonial].image}
-                  alt={testimonials[activeTestimonial].name}
-                  className="w-20 h-20 rounded-full mx-auto mb-6 object-cover"
-                />
-                <blockquote className="text-2xl text-gray-900 mb-6 leading-relaxed">
-                  "{testimonials[activeTestimonial].quote}"
-                </blockquote>
-                <div className="text-lg font-semibold text-gray-900">
-                  {testimonials[activeTestimonial].name}
-                </div>
-                <div className="text-blue-600">
-                  {testimonials[activeTestimonial].role}
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <div className="flex justify-center items-center gap-4 mt-8">
-              <button
-                onClick={() => setActiveTestimonial(prev => prev === 0 ? testimonials.length - 1 : prev - 1)}
-                className="p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
-              >
-                <ChevronLeft className="w-6 h-6 text-gray-600" />
-              </button>
               
-              <div className="flex gap-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      index === activeTestimonial ? 'bg-blue-600' : 'bg-gray-300'
-                    }`}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={() => setActiveTestimonial(prev => (prev + 1) % testimonials.length)}
-                className="p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
-              >
-                <ChevronRight className="w-6 h-6 text-gray-600" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Get Involved Section */}
-      <section id="get-involved" className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Get Involved</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              There are many ways to support our mission and make a difference in young people's lives.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Join as a Teen</h3>
-              <p className="text-gray-600 mb-6">
-                Ages 13-18, ready to explore your creative and athletic potential? Apply for our programs and connect with mentors who believe in your future.
-              </p>
-              <ul className="text-left space-y-2 mb-8">
-                <li className="flex items-center gap-2 text-gray-600">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  Free program participation
-                </li>
-                <li className="flex items-center gap-2 text-gray-600">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  Personal mentorship
-                </li>
-                <li className="flex items-center gap-2 text-gray-600">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  Scholarship opportunities
-                </li>
-              </ul>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-blue-600 text-white py-3 rounded-full hover:bg-blue-700 transition-colors font-semibold"
-              >
-                Apply Now
-              </button>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Globe className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Partner as Organization</h3>
-              <p className="text-gray-600 mb-6">
-                Schools, businesses, and nonprofits can partner with us to provide internships, mentorship, and resources for our participants.
-              </p>
-              <ul className="text-left space-y-2 mb-8">
-                <li className="flex items-center gap-2 text-gray-600">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  Host interns & volunteers
-                </li>
-                <li className="flex items-center gap-2 text-gray-600">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  Provide mentors
-                </li>
-                <li className="flex items-center gap-2 text-gray-600">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  Community recognition
-                </li>
-              </ul>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-purple-600 text-white py-3 rounded-full hover:bg-purple-700 transition-colors font-semibold"
-              >
-                Partner With Us
-              </button>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-green-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Heart className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Support as Donor</h3>
-              <p className="text-gray-600 mb-6">
-                Your financial support directly funds programs, mentorships, and opportunities that transform young lives in our community.
-              </p>
-              <ul className="text-left space-y-2 mb-8">
-                <li className="flex items-center gap-2 text-gray-600">
-                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                  Tax-deductible giving
-                </li>
-                <li className="flex items-center gap-2 text-gray-600">
-                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                  Impact reporting
-                </li>
-                <li className="flex items-center gap-2 text-gray-600">
-                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                  Community events
-                </li>
-              </ul>
-              <button 
-                onClick={() => scrollToSection('donate')}
-                className="w-full bg-green-600 text-white py-3 rounded-full hover:bg-green-700 transition-colors font-semibold"
-              >
-                Make a Donation
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Donation Section */}
-      <section id="donate" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Support Our Mission</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Your donation directly supports programming, mentorships, and opportunities for Bay Area youth.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-center border-2 border-transparent hover:border-blue-300 transition-all duration-300">
-              <div className="text-3xl font-bold text-blue-600 mb-2">$50</div>
-              <div className="text-lg font-semibold text-gray-900 mb-4">Supporter</div>
-              <p className="text-gray-600 mb-6">Provides art supplies for one teen for a full month of programming.</p>
-              <button className="w-full bg-blue-600 text-white py-3 rounded-full hover:bg-blue-700 transition-colors font-semibold">
-                Give $50
-              </button>
-            </div>
-
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center border-2 border-purple-300 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                Most Popular
-              </div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">$150</div>
-              <div className="text-lg font-semibold text-gray-900 mb-4">Champion</div>
-              <p className="text-gray-600 mb-6">Sponsors one teen's full participation in our mentorship program.</p>
-              <button className="w-full bg-purple-600 text-white py-3 rounded-full hover:bg-purple-700 transition-colors font-semibold">
-                Give $150
-              </button>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 text-center border-2 border-transparent hover:border-green-300 transition-all duration-300">
-              <div className="text-3xl font-bold text-green-600 mb-2">$500</div>
-              <div className="text-lg font-semibold text-gray-900 mb-4">Game Changer</div>
-              <p className="text-gray-600 mb-6">Funds a paid internship opportunity for one teen participant.</p>
-              <button className="w-full bg-green-600 text-white py-3 rounded-full hover:bg-green-700 transition-colors font-semibold">
-                Give $500
-              </button>
-            </div>
-          </div>
-
-          {/* Partner Logos */}
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Proud Partners</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-              {partners.map((partner, index) => (
-                <div key={index} className="bg-gray-50 rounded-lg p-4 flex items-center justify-center h-20">
-                  <div className="text-lg font-bold text-gray-600">{partner.logo}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to join our community? Have questions? We'd love to hear from you.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
-                    <input 
-                      type="text" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200"
-                      placeholder="Enter your first name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
-                    <input 
-                      type="text" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200"
-                      placeholder="Enter your last name"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-                  <input 
-                    type="email" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200"
-                    placeholder="Enter your email"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Interest</label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200">
-                    <option>Teen Program Application</option>
-                    <option>Partnership Opportunities</option>
-                    <option>Volunteer/Mentor</option>
-                    <option>Donation Information</option>
-                    <option>General Inquiry</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-                  <textarea 
-                    rows="4" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200"
-                    placeholder="Tell us more about your interest..."
-                  ></textarea>
-                </div>
-                <button 
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold text-lg"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-blue-600" />
+              {/* KPI Dashboard */}
+              <div className="rounded-3xl border border-neutral-200 bg-gradient-to-br from-neutral-50 to-white p-8 shadow-sm">
+                <h3 className="text-sm uppercase tracking-wider text-neutral-500 font-semibold mb-6">Impact Dashboard</h3>
+                <div className="grid gap-6">
+                  {kpis.map((kpi) => (
+                    <div key={kpi.label} className="flex items-center justify-between p-4 rounded-2xl bg-white border border-neutral-200">
+                      <span className="text-neutral-700 font-medium">{kpi.label}</span>
+                      <span className="text-2xl font-bold text-neutral-900">{kpi.value}</span>
                     </div>
-                    <div>
-                      <div className="font-semibold text-gray-900">Address</div>
-                      <div className="text-gray-600">1234 Mission Street<br />Oakland, CA 94612</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5 text-green-600" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-900">Phone</div>
-                      <div className="text-gray-600">(510) 555-AAFC</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-5 h-5 text-purple-600" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-900">Email</div>
-                      <div className="text-gray-600">info@aafc.org</div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
 
-              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
-                <h3 className="text-xl font-bold mb-4">Office Hours</h3>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>10:00 AM - 4:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>Closed</span>
-                  </div>
+        {/* MISSION & VISION SECTION */}
+        <section id="mission" className="py-20 border-t border-neutral-200 bg-neutral-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Mission & Vision</h2>
+              <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+                <div className="text-left">
+                  <h3 className="text-xl font-semibold mb-4 text-blue-600">Our Mission</h3>
+                  <p className="text-neutral-700 leading-relaxed">
+                    To empower youth through integrated arts and athletics programming that builds leadership skills, fosters creativity, and creates positive community impact.
+                  </p>
                 </div>
-                <div className="mt-6 pt-6 border-t border-white/20">
-                  <p className="text-sm opacity-90">
-                    Programs run year-round with special summer intensive sessions.
+                <div className="text-left">
+                  <h3 className="text-xl font-semibold mb-4 text-purple-600">Our Vision</h3>
+                  <p className="text-neutral-700 leading-relaxed">
+                    A world where every young person has the tools, confidence, and community support to become a positive change agent in their neighborhood and beyond.
                   </p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-white" />
+            
+            {/* Value Pillars */}
+            <div className="grid md:grid-cols-3 gap-8">
+              {missionPillars.map((pillar, index) => (
+                <div key={pillar.title} className="text-center p-8 rounded-3xl bg-white border border-neutral-200 shadow-sm">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center mx-auto mb-6">
+                    <span className="text-2xl font-bold text-neutral-700">{index + 1}</span>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4">{pillar.title}</h3>
+                  <p className="text-neutral-600 leading-relaxed">{pillar.description}</p>
                 </div>
-                <span className="text-2xl font-bold">AAFC</span>
-              </div>
-              <p className="text-gray-400 mb-6">
-                Empowering Bay Area youth through transformative arts and athletics programs since 2016.
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PROGRAMS SECTION */}
+        <section id="programs" className="py-20 border-t border-neutral-200 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Our Programs</h2>
+              <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+                Comprehensive pathways for youth development through arts, athletics, and community engagement.
               </p>
-              <div className="text-sm text-gray-500">
-                © 2024 Artists & Athletes for Change. All rights reserved.
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {programs.map((program) => {
+                const IconComponent = program.icon;
+                return (
+                  <div key={program.id} className="rounded-3xl border border-neutral-200 p-8 hover:shadow-lg transition-shadow">
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="p-3 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50">
+                        <IconComponent className="h-6 w-6 text-neutral-700" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2">{program.title}</h3>
+                        <p className="text-neutral-600">{program.description}</p>
+                      </div>
+                    </div>
+                    <ul className="space-y-2">
+                      {program.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2 text-sm text-neutral-700">
+                          <div className="w-1.5 h-1.5 rounded-full bg-neutral-400"></div>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section className="py-16 border-t border-neutral-200 bg-neutral-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl font-bold tracking-tight mb-12 text-center">Community Voices</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+                  <p className="text-neutral-700 leading-relaxed mb-4">"{testimonial.quote}"</p>
+                  <p className="text-sm text-neutral-500 font-medium">— {testimonial.author}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* GET INVOLVED SECTION */}
+        <section id="involved" className="py-20 border-t border-neutral-200 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Get Involved</h2>
+              <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+                There are multiple ways to join our community and make a difference.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center p-8 rounded-3xl border border-neutral-200 hover:border-blue-300 transition-colors">
+                <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6">
+                  <Users2 className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">Join as a Teen</h3>
+                <p className="text-neutral-600 mb-6">Ages 13-18, ready to create, compete, and change your community.</p>
+                <button className="w-full rounded-2xl px-4 py-2 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors">
+                  Apply Now
+                </button>
+              </div>
+              
+              <div className="text-center p-8 rounded-3xl border border-neutral-200 hover:border-purple-300 transition-colors">
+                <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mx-auto mb-6">
+                  <Building2 className="h-8 w-8 text-purple-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">Partner Organization</h3>
+                <p className="text-neutral-600 mb-6">Schools, nonprofits, and companies creating opportunities together.</p>
+                <button className="w-full rounded-2xl px-4 py-2 bg-purple-600 text-white font-medium hover:bg-purple-700 transition-colors">
+                  Learn More
+                </button>
+              </div>
+              
+              <div className="text-center p-8 rounded-3xl border border-neutral-200 hover:border-green-300 transition-colors">
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                  <HeartHandshake className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">Support as a Donor</h3>
+                <p className="text-neutral-600 mb-6">Invest in the next generation of community leaders.</p>
+                <button 
+                  onClick={() => scrollToSection('donate')}
+                  className="w-full rounded-2xl px-4 py-2 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors"
+                >
+                  Donate Now
+                </button>
               </div>
             </div>
+          </div>
+        </section>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Programs</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Mentorship</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Internships</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Leadership</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Community Projects</a></li>
-              </ul>
+        {/* DONATE SECTION */}
+        <section id="donate" className="py-20 border-t border-neutral-200 bg-neutral-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Support Our Mission</h2>
+                <p className="text-lg text-neutral-600 mb-8">
+                  Your donation directly impacts youth in our community. Every contribution helps provide opportunities, resources, and mentorship.
+                </p>
+                
+                <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                  {tiers.map((tier) => (
+                    <div key={tier.amount} className="rounded-2xl border border-neutral-200 p-6 bg-white hover:border-neutral-300 transition-colors">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-2xl font-bold text-neutral-900">{tier.amount}</span>
+                        {tier.monthly && (
+                          <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full font-medium">
+                            Monthly
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-neutral-600 mb-4">{tier.impact}</p>
+                      <div className="flex gap-2">
+                        <button className="flex-1 text-sm bg-black text-white rounded-lg px-3 py-2 hover:bg-neutral-800 transition-colors">
+                          Stripe
+                        </button>
+                        <button className="flex-1 text-sm border border-neutral-300 rounded-lg px-3 py-2 hover:bg-neutral-50 transition-colors">
+                          PayPal
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="text-sm text-neutral-600 space-y-2">
+                  <p>• 100% of donations go directly to programs</p>
+                  <p>• Tax-deductible receipts provided</p>
+                  <p>• Quarterly impact reports for all donors</p>
+                </div>
+              </div>
+              
+              {/* Partners Section */}
+              <div className="space-y-8">
+                <div className="rounded-3xl border border-neutral-200 bg-white p-8">
+                  <h3 className="text-sm uppercase tracking-wider text-neutral-500 font-semibold mb-6">
+                    Trusted Partners
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    {partners.map((partner) => (
+                      <div key={partner} className="h-16 rounded-xl bg-neutral-50 border border-neutral-200 flex items-center justify-center">
+                        <span className="text-xs font-medium text-neutral-600">{partner}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="rounded-3xl border border-neutral-200 bg-white p-8">
+                  <h3 className="text-lg font-semibold mb-4">Questions about donating?</h3>
+                  <p className="text-neutral-600 text-sm mb-4">
+                    Our team is happy to discuss corporate partnerships, planned giving, or other ways to support AAFC.
+                  </p>
+                  <button className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium">
+                    Contact Development Team <ExternalLink className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Get Involved</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Join as Teen</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Become a Mentor</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Partner with Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Donate</a></li>
-              </ul>
+        {/* CONTACT SECTION */}
+        <section id="contact" className="py-20 border-t border-neutral-200 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Get in Touch</h2>
+                <p className="text-lg text-neutral-600 mb-8">
+                  Ready to join our community or have questions? We'd love to hear from you.
+                </p>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 rounded-lg bg-blue-50">
+                      <Mail className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">General Inquiries</h3>
+                      <p className="text-neutral-600">hello@aafcyouth.org</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 rounded-lg bg-green-50">
+                      <Phone className="h-5 w-5 text-green-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Phone</h3>
+                      <p className="text-neutral-600">(510) 555-AAFC</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 rounded-lg bg-purple-50">
+                      <MapPin className="h-5 w-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Location</h3>
+                      <p className="text-neutral-600">Oakland, CA<br />Serving the Bay Area</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Contact Form */}
+              <div className="rounded-3xl border border-neutral-200 bg-neutral-50 p-8">
+                <h3 className="text-xl font-semibold mb-6">Send us a message</h3>
+                <form className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <input 
+                      type="text" 
+                      placeholder="First Name" 
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    <input 
+                      type="text" 
+                      placeholder="Last Name" 
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                  </div>
+                  <input 
+                    type="email" 
+                    placeholder="Email Address" 
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                  <select className="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <option>I'm interested in...</option>
+                    <option>Teen Programs</option>
+                    <option>Partnership Opportunities</option>
+                    <option>Volunteering</option>
+                    <option>Donations</option>
+                    <option>Other</option>
+                  </select>
+                  <textarea 
+                    placeholder="Tell us more about your interest..." 
+                    rows={4}
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  />
+                  <button 
+                    type="submit"
+                    className="w-full rounded-xl px-6 py-3 bg-black text-white font-medium hover:bg-neutral-800 transition-colors"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </div>
             </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Connect</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>1234 Mission Street</li>
-                <li>Oakland, CA 94612</li>
-                <li>(510) 555-AAFC</li>
-                <li>info@aafc.org</li>
-              </ul>
+          </div>
+        </section>
+      </main>
+      
+      {/* Footer */}
+      <footer className="border-t border-neutral-200 bg-neutral-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <LogoPlaceholder />
+                <div>
+                  <p className="font-semibold">Artists & Athletes for Change</p>
+                  <p className="text-sm text-neutral-400">Youth • Creativity • Community Impact</p>
+                </div>
+              </div>
+              <p className="text-neutral-400 text-sm leading-relaxed max-w-md">
+                Empowering the next generation through integrated arts and athletics programming that builds leaders and transforms communities.
+              </p>
             </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <div className="space-y-2 text-sm text-neutral-400">
+                {nav.slice(0, 4).map((item) => (
+                  <button 
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="block hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Get Involved</h4>
+              <div className="space-y-2 text-sm text-neutral-400">
+                <button 
+                  onClick={() => scrollToSection('involved')}
+                  className="block hover:text-white transition-colors"
+                >
+                  Teen Programs
+                </button>
+                <button 
+                  onClick={() => scrollToSection('involved')}
+                  className="block hover:text-white transition-colors"
+                >
+                  Partnerships
+                </button>
+                <button 
+                  onClick={() => scrollToSection('donate')}
+                  className="block hover:text-white transition-colors"
+                >
+                  Donate
+                </button>
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="block hover:text-white transition-colors"
+                >
+                  Contact Us
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-neutral-800 mt-12 pt-8 text-center text-sm text-neutral-400">
+            <p>&copy; 2024 Artists & Athletes for Change. All rights reserved.</p>
           </div>
         </div>
       </footer>
     </div>
   );
-};
-
-export default AAFC;
+}
