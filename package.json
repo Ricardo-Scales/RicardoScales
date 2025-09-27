@@ -24,7 +24,6 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.1.12",
     "lucide-react": "^0.540.0",
     "react-router-dom": "^7.7.1"
   }
