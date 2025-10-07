@@ -371,22 +371,70 @@ function Music() {
             gap: '24px'
           }}>
             {[
-              { title: "I'm Here!", year: "2007", cover: "IH" },
-              { title: "The Black Prince", year: "2005", cover: "BP" },
-              { title: "Top of the Mark", year: "2010", cover: "TM" },
-              { title: "Cultural Ambassador", year: "2015", cover: "CA" },
-              { title: "Fillmore Revival", year: "2025", cover: "FR" },
-              { title: "Legacy Collection", year: "2020", cover: "LC" }
+              { 
+                title: "All the Way", 
+                year: "2016", 
+                cover: "AW",
+                links: {
+                  spotify: "https://open.spotify.com/intl-es/album/3Dsxs0y5re05xgsQYKeMri",
+                  apple: "https://music.apple.com/us/album/all-the-way/1679104453",
+                  deezer: "https://www.deezer.com/en/album/421818407"
+                }
+              },
+              { 
+                title: "Summertime and You", 
+                year: "2011", 
+                cover: "SY",
+                links: {
+                  apple: "https://music.apple.com/us/album/summertime-and-you/1760599954",
+                  deezer: "https://www.deezer.com/en/album/623538451",
+                  allmusic: "https://www.allmusic.com/album/summertime-and-you-mw0002137367"
+                }
+              },
+              { 
+                title: "For the Love in You", 
+                year: "2010", 
+                cover: "FL",
+                links: {
+                  apple: "https://music.apple.com/us/album/for-the-love-in-you/1717490006",
+                  allmusic: "https://www.allmusic.com/album/for-the-love-in-you-mw0001993458"
+                }
+              },
+              { 
+                title: "I'm Here!", 
+                year: "2007", 
+                cover: "IH",
+                links: {
+                  apple: "https://music.apple.com/us/album/im-here/1680319784"
+                }
+              },
+              { 
+                title: "Happy Holidays", 
+                year: "2005", 
+                cover: "HH",
+                links: {
+                  apple: "https://music.apple.com/us/album/happy-holidays-forever-love/331104240"
+                }
+              },
+              { 
+                title: "Destiny", 
+                year: "2004", 
+                cover: "DS",
+                links: {
+                  apple: "https://music.apple.com/us/album/destiny/1680331659"
+                }
+              }
             ].map((album, index) => (
               <div key={index} style={{
                 backgroundColor: '#181818',
                 borderRadius: '8px',
                 padding: '16px',
                 cursor: 'pointer',
-                transition: 'background-color 0.2s ease'
+                transition: 'background-color 0.2s ease',
+                position: 'relative'
               }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#282828'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = '#181818'}>
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#282828'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#181818'}>
                 <div style={{
                   width: '100%',
                   aspectRatio: '1',
@@ -415,8 +463,75 @@ function Music() {
                 <p style={{
                   color: '#b3b3b3',
                   fontSize: '14px',
-                  margin: '0'
+                  margin: '0 0 8px 0'
                 }}>{album.year} • Album</p>
+
+                <div style={{
+                  display: 'flex',
+                  gap: '8px',
+                  flexWrap: 'wrap'
+                }}>
+                  {album.links.spotify && (
+                    <a href={album.links.spotify} target="_blank" rel="noopener noreferrer" style={{
+                      color: '#1db954',
+                      fontSize: '12px',
+                      textDecoration: 'none',
+                      padding: '4px 8px',
+                      backgroundColor: 'rgba(29, 185, 84, 0.1)',
+                      borderRadius: '4px',
+                      transition: 'background-color 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(29, 185, 84, 0.2)'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(29, 185, 84, 0.1)'}>
+                      Spotify
+                    </a>
+                  )}
+                  {album.links.apple && (
+                    <a href={album.links.apple} target="_blank" rel="noopener noreferrer" style={{
+                      color: '#fa233b',
+                      fontSize: '12px',
+                      textDecoration: 'none',
+                      padding: '4px 8px',
+                      backgroundColor: 'rgba(250, 35, 59, 0.1)',
+                      borderRadius: '4px',
+                      transition: 'background-color 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(250, 35, 59, 0.2)'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(250, 35, 59, 0.1)'}>
+                      Apple
+                    </a>
+                  )}
+                  {album.links.deezer && (
+                    <a href={album.links.deezer} target="_blank" rel="noopener noreferrer" style={{
+                      color: '#feaa2d',
+                      fontSize: '12px',
+                      textDecoration: 'none',
+                      padding: '4px 8px',
+                      backgroundColor: 'rgba(254, 170, 45, 0.1)',
+                      borderRadius: '4px',
+                      transition: 'background-color 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(254, 170, 45, 0.2)'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(254, 170, 45, 0.1)'}>
+                      Deezer
+                    </a>
+                  )}
+                  {album.links.allmusic && (
+                    <a href={album.links.allmusic} target="_blank" rel="noopener noreferrer" style={{
+                      color: '#7289da',
+                      fontSize: '12px',
+                      textDecoration: 'none',
+                      padding: '4px 8px',
+                      backgroundColor: 'rgba(114, 137, 218, 0.1)',
+                      borderRadius: '4px',
+                      transition: 'background-color 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(114, 137, 218, 0.2)'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(114, 137, 218, 0.1)'}>
+                      AllMusic
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
