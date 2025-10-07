@@ -375,7 +375,7 @@ function Music() {
                 title: "All the Way", 
                 year: "2016", 
                 cover: "AW",
-                coverImage: null,
+                coverImage: "/attached_assets/Screen Shot 2025-10-06 at 10.26.18 PM_1759814889771.png",
                 links: {
                   spotify: "https://open.spotify.com/intl-es/album/3Dsxs0y5re05xgsQYKeMri",
                   apple: "https://music.apple.com/us/album/all-the-way/1679104453",
@@ -407,7 +407,7 @@ function Music() {
                 title: "I'm Here!", 
                 year: "2007", 
                 cover: "IH",
-                coverImage: null,
+                coverImage: "/attached_assets/Screen Shot 2025-10-06 at 10.27.37 PM_1759814889777.png",
                 links: {
                   apple: "https://music.apple.com/us/album/im-here/1680319784"
                 }
