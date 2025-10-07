@@ -375,6 +375,7 @@ function Music() {
                 title: "All the Way", 
                 year: "2016", 
                 cover: "AW",
+                coverImage: null,
                 links: {
                   spotify: "https://open.spotify.com/intl-es/album/3Dsxs0y5re05xgsQYKeMri",
                   apple: "https://music.apple.com/us/album/all-the-way/1679104453",
@@ -385,6 +386,7 @@ function Music() {
                 title: "Summertime and You", 
                 year: "2011", 
                 cover: "SY",
+                coverImage: "/attached_assets/album_summertime_and_you.jpg",
                 links: {
                   apple: "https://music.apple.com/us/album/summertime-and-you/1760599954",
                   deezer: "https://www.deezer.com/en/album/623538451",
@@ -395,6 +397,7 @@ function Music() {
                 title: "For the Love in You", 
                 year: "2010", 
                 cover: "FL",
+                coverImage: "/attached_assets/album_for_the_love_in_you.jpg",
                 links: {
                   apple: "https://music.apple.com/us/album/for-the-love-in-you/1717490006",
                   allmusic: "https://www.allmusic.com/album/for-the-love-in-you-mw0001993458"
@@ -404,6 +407,7 @@ function Music() {
                 title: "I'm Here!", 
                 year: "2007", 
                 cover: "IH",
+                coverImage: null,
                 links: {
                   apple: "https://music.apple.com/us/album/im-here/1680319784"
                 }
@@ -412,6 +416,7 @@ function Music() {
                 title: "Happy Holidays", 
                 year: "2005", 
                 cover: "HH",
+                coverImage: "/attached_assets/album_happy_holidays.jpg",
                 links: {
                   apple: "https://music.apple.com/us/album/happy-holidays-forever-love/331104240"
                 }
@@ -420,6 +425,7 @@ function Music() {
                 title: "Destiny", 
                 year: "2004", 
                 cover: "DS",
+                coverImage: "/attached_assets/album_destiny.jpg",
                 links: {
                   apple: "https://music.apple.com/us/album/destiny/1680331659"
                 }
@@ -438,7 +444,7 @@ function Music() {
                 <div style={{
                   width: '100%',
                   aspectRatio: '1',
-                  backgroundColor: '#1db954',
+                  backgroundColor: album.coverImage ? 'transparent' : '#1db954',
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
@@ -447,8 +453,11 @@ function Music() {
                   fontWeight: '900',
                   color: 'white',
                   marginBottom: '16px',
-                  boxShadow: '0 8px 24px rgba(0,0,0,.5)'
-                }}>{album.cover}</div>
+                  boxShadow: '0 8px 24px rgba(0,0,0,.5)',
+                  backgroundImage: album.coverImage ? `url(${album.coverImage})` : 'none',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}>{album.coverImage ? '' : album.cover}</div>
 
                 <h3 style={{
                   color: 'white',
