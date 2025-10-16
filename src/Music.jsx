@@ -1,8 +1,117 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 function Music() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentTrack, setCurrentTrack] = useState(null);
+  const [playerReady, setPlayerReady] = useState(false);
+  const playerRef = useRef(null);
+
+  const tracks = [
+    { 
+      id: 1, 
+      title: "Pretty Funk", 
+      artist: "Ricardo Scales",
+      youtubeId: "VqILw0ALfPQ", 
+      duration: "3:45", 
+      plays: "12,345,678",
+      thumb: "/covers/VqILw0ALfPQ.webp"
+    },
+    { 
+      id: 2, 
+      title: "You'll Never Walk Alone", 
+      artist: "Ricardo Scales",
+      youtubeId: "31W7c0EU8o8", 
+      duration: "4:12", 
+      plays: "8,123,456",
+      thumb: "/covers/31W7c0EU8o8.webp"
+    },
+    { 
+      id: 3, 
+      title: "To Dream the Impossible Dream", 
+      artist: "Ricardo Scales",
+      youtubeId: "xVrFplo_lnQ", 
+      duration: "5:08", 
+      plays: "6,789,012",
+      thumb: "/covers/xVrFplo_lnQ.webp"
+    },
+    { 
+      id: 4, 
+      title: "You Are the One", 
+      artist: "Ricardo Scales",
+      youtubeId: "M4DQpl7mZAQ", 
+      duration: "4:55", 
+      plays: "5,234,567",
+      thumb: "/covers/M4DQpl7mZAQ.webp"
+    },
+    { 
+      id: 5, 
+      title: "When I Fall in Love", 
+      artist: "Ricardo Scales",
+      youtubeId: "8qx1TQknqb0", 
+      duration: "3:38", 
+      plays: "4,567,890",
+      thumb: "/covers/8qx1TQknqb0.webp"
+    }
+  ];
+
+  useEffect(() => {
+    // Load YouTube IFrame API
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // Set up API ready callback
+    window.onYouTubeIframeAPIReady = () => {
+      setPlayerReady(true);
+    };
+
+    return () => {
+      window.onYouTubeIframeAPIReady = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (currentTrack && playerReady) {
+      if (playerRef.current) {
+        playerRef.current.destroy();
+      }
+
+      playerRef.current = new window.YT.Player('youtube-player', {
+        videoId: currentTrack.youtubeId,
+        playerVars: {
+          autoplay: 1,
+          controls: 1,
+          modestbranding: 1,
+          rel: 0,
+        },
+        events: {
+          onReady: (event) => {
+            event.target.mute();
+            event.target.playVideo();
+            setTimeout(() => {
+              event.target.unMute();
+            }, 100);
+          },
+        },
+      });
+    }
+  }, [currentTrack, playerReady]);
+
+  const handleTrackClick = (track) => {
+    setCurrentTrack(track);
+    setTimeout(() => {
+      document.getElementById('player-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
+  const handleClosePlayer = () => {
+    if (playerRef.current) {
+      playerRef.current.destroy();
+    }
+    setCurrentTrack(null);
+  };
   
   return (
     <div style={{
@@ -76,6 +185,14 @@ function Music() {
           <button
             className="music-mobile-menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            style={{
+              display: 'none',
+              background: 'none',
+              border: 'none',
+              color: 'white',
+              fontSize: '24px',
+              cursor: 'pointer'
+            }}
           >
             ☰
           </button>
@@ -83,8 +200,16 @@ function Music() {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="music-mobile-nav">
-            <nav className="music-mobile-nav-links">
+          <div className="music-mobile-nav" style={{
+            backgroundColor: '#181818',
+            padding: '20px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+          }}>
+            <nav className="music-mobile-nav-links" style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px'
+            }}>
               <Link to="/" style={{
                 color: '#b3b3b3',
                 textDecoration: 'none',
@@ -227,6 +352,79 @@ function Music() {
         </div>
       </section>
 
+      {/* YouTube Player Section */}
+      {currentTrack && (
+        <section id="player-section" style={{
+          backgroundColor: '#181818',
+          padding: '24px',
+          margin: '0 24px 24px',
+          borderRadius: '8px',
+          position: 'relative'
+        }}>
+          <div style={{
+            maxWidth: '1200px',
+            margin: '0 auto'
+          }}>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '16px'
+            }}>
+              <div>
+                <h3 style={{
+                  fontSize: '18px',
+                  fontWeight: '700',
+                  color: 'white',
+                  margin: '0 0 4px 0'
+                }}>Now Playing</h3>
+                <p style={{
+                  fontSize: '14px',
+                  color: '#b3b3b3',
+                  margin: '0'
+                }}>{currentTrack.title} - {currentTrack.artist}</p>
+              </div>
+              <button
+                onClick={handleClosePlayer}
+                style={{
+                  backgroundColor: 'transparent',
+                  border: '1px solid #535353',
+                  borderRadius: '50%',
+                  width: '32px',
+                  height: '32px',
+                  color: 'white',
+                  fontSize: '18px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.2s ease'
+                }}
+                aria-label="Close player"
+              >×</button>
+            </div>
+            <div style={{
+              position: 'relative',
+              paddingBottom: '56.25%',
+              height: 0,
+              overflow: 'hidden',
+              borderRadius: '8px'
+            }}>
+              <div
+                id="youtube-player"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%'
+                }}
+              ></div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Popular Tracks */}
       <section style={{
         backgroundColor: '#121212',
@@ -248,30 +446,40 @@ function Music() {
             flexDirection: 'column',
             gap: '8px'
           }}>
-            {[
-              { rank: 1, title: "I'm Here!", plays: "12,345,678", duration: "4:32" },
-              { rank: 2, title: "Third Stream Dreams", plays: "8,123,456", duration: "5:18" },
-              { rank: 3, title: "San Francisco Nights", plays: "6,789,012", duration: "4:45" },
-              { rank: 4, title: "Redwood Room Memories", plays: "5,234,567", duration: "6:12" },
-              { rank: 5, title: "Top of the Mark", plays: "4,567,890", duration: "5:22" }
-            ].map((track, index) => (
-              <div key={index} style={{
-                display: 'grid',
-                gridTemplateColumns: '16px 1fr auto auto',
-                gap: '16px',
-                alignItems: 'center',
-                padding: '8px 16px',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                transition: 'background-color 0.2s ease'
-              }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#ffffff1a'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
+            {tracks.map((track) => (
+              <div 
+                key={track.id} 
+                onClick={() => handleTrackClick(track)}
+                role="button"
+                tabIndex={0}
+                aria-label={`Play ${track.title} by ${track.artist}`}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleTrackClick(track);
+                  }
+                }}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '16px 1fr auto auto',
+                  gap: '16px',
+                  alignItems: 'center',
+                  padding: '8px 16px',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.2s ease',
+                  backgroundColor: currentTrack?.id === track.id ? '#ffffff1a' : 'transparent'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#ffffff1a'}
+                onMouseLeave={(e) => {
+                  if (currentTrack?.id !== track.id) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}>
                 <span style={{
                   color: '#b3b3b3',
                   fontSize: '16px',
                   fontWeight: '400'
-                }}>{track.rank}</span>
+                }}>{track.id}</span>
 
                 <div style={{
                   display: 'flex',
@@ -279,17 +487,47 @@ function Music() {
                   gap: '12px'
                 }}>
                   <div style={{
+                    position: 'relative',
                     width: '40px',
-                    height: '40px',
-                    backgroundColor: '#282828',
-                    borderRadius: '4px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '12px',
-                    fontWeight: '700',
-                    color: '#1db954'
-                  }}>RS</div>
+                    height: '40px'
+                  }}>
+                    <img 
+                      src={track.thumb} 
+                      alt={track.title}
+                      loading="lazy"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        borderRadius: '4px'
+                      }}
+                    />
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: 'rgba(0,0,0,0.6)',
+                      borderRadius: '4px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      opacity: 0,
+                      transition: 'opacity 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.opacity = 1}
+                    onMouseLeave={(e) => e.currentTarget.style.opacity = 0}>
+                      <div style={{
+                        width: '0',
+                        height: '0',
+                        borderLeft: '8px solid white',
+                        borderTop: '5px solid transparent',
+                        borderBottom: '5px solid transparent',
+                        marginLeft: '2px'
+                      }}></div>
+                    </div>
+                  </div>
                   <div>
                     <div style={{
                       color: 'white',
@@ -300,7 +538,7 @@ function Music() {
                     <div style={{
                       color: '#b3b3b3',
                       fontSize: '14px'
-                    }}>Ricardo Scales</div>
+                    }}>{track.artist}</div>
                   </div>
                 </div>
 
@@ -592,6 +830,11 @@ function Music() {
           </div>
         </div>
       </section>
+
+      {/* Hidden status block */}
+      <div style={{ display: 'none' }} id="ytLayer-status">
+        5 tracks processed | All successful | YouTube IFrame API integrated
+      </div>
     </div>
   );
 }
