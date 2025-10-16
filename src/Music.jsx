@@ -6,7 +6,26 @@ function Music() {
   const [musicData, setMusicData] = useState([]);
   const [currentTrack, setCurrentTrack] = useState(null);
   const [player, setPlayer] = useState(null);
-  const playerRef = useRef(null);
+  const apiReadyPromiseRef = useRef(
+    new Promise((resolve) => {
+      if (window.YT && window.YT.Player) {
+        resolve();
+      } else {
+        window.onYouTubeIframeAPIReady = () => {
+          resolve();
+          delete window.onYouTubeIframeAPIReady;
+        };
+
+        if (!document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+          const tag = document.createElement('script');
+          tag.src = 'https://www.youtube.com/iframe_api';
+          const firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+      }
+    })
+  );
+  const playerInstanceRef = useRef(null);
 
   useEffect(() => {
     fetch('/music.json')
@@ -14,43 +33,47 @@ function Music() {
       .then(data => setMusicData(data))
       .catch(err => console.error('Error loading music data:', err));
 
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    window.onYouTubeIframeAPIReady = () => {
-      console.log('YouTube API ready');
+    return () => {
+      if (playerInstanceRef.current) {
+        playerInstanceRef.current.destroy();
+        playerInstanceRef.current = null;
+        setPlayer(null);
+      }
     };
   }, []);
 
+  const createPlayer = async (track) => {
+    await apiReadyPromiseRef.current;
+
+    if (playerInstanceRef.current) {
+      playerInstanceRef.current.loadVideoById(track.youtubeId);
+      return;
+    }
+
+    const newPlayer = new window.YT.Player('youtube-player', {
+      height: '100%',
+      width: '100%',
+      videoId: track.youtubeId,
+      playerVars: {
+        autoplay: 1,
+        modestbranding: 1,
+        rel: 0
+      },
+      events: {
+        onReady: (event) => {
+          event.target.mute();
+          event.target.playVideo();
+          setTimeout(() => event.target.unMute(), 1000);
+        }
+      }
+    });
+    playerInstanceRef.current = newPlayer;
+    setPlayer(newPlayer);
+  };
+
   const playTrack = (track) => {
     setCurrentTrack(track);
-    
-    setTimeout(() => {
-      if (!player && window.YT) {
-        const newPlayer = new window.YT.Player('youtube-player', {
-          height: '100%',
-          width: '100%',
-          videoId: track.youtubeId,
-          playerVars: {
-            autoplay: 1,
-            modestbranding: 1,
-            rel: 0
-          },
-          events: {
-            onReady: (event) => {
-              event.target.mute();
-              event.target.playVideo();
-              setTimeout(() => event.target.unMute(), 1000);
-            }
-          }
-        });
-        setPlayer(newPlayer);
-      } else if (player) {
-        player.loadVideoById(track.youtubeId);
-      }
-    }, 100);
+    createPlayer(track);
   };
 
   const closePlayer = () => {
@@ -206,7 +229,6 @@ function Music() {
             }}>
               <div
                 id="youtube-player"
-                ref={playerRef}
                 style={{
                   position: 'absolute',
                   top: 0,
