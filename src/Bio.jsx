@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 function Bio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -438,69 +439,7 @@ function Bio() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{
-        backgroundColor: '#000000',
-        borderTop: '1px solid rgba(194, 136, 64, 0.2)',
-        padding: '60px 40px 40px',
-        color: 'white'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          textAlign: 'center'
-        }}>
-          <div style={{
-            fontSize: '36px',
-            fontFamily: "'Alex Brush', cursive",
-            color: '#C28840',
-            marginBottom: '30px',
-            textShadow: '0 4px 8px rgba(194, 136, 64, 0.3)'
-          }}>
-            Ricardo Scales
-          </div>
-
-          <div style={{
-            height: '1px',
-            background: 'linear-gradient(to right, transparent, rgba(194, 136, 64, 0.3), transparent)',
-            margin: '30px 0',
-            maxWidth: '400px',
-            marginLeft: 'auto',
-            marginRight: 'auto'
-          }}></div>
-
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '40px',
-            flexWrap: 'wrap',
-            fontSize: '14px',
-            color: 'rgba(255,255,255,0.7)'
-          }}>
-            <p style={{
-              margin: 0,
-              fontFamily: "'Playfair Display', serif"
-            }}>
-              © 2025 Ricardo Scales. All rights reserved.
-            </p>
-
-            <div style={{
-              height: '20px',
-              width: '1px',
-              backgroundColor: 'rgba(194, 136, 64, 0.3)'
-            }}></div>
-
-            <p style={{
-              margin: 0,
-              fontFamily: "'Playfair Display', serif",
-              fontStyle: 'italic'
-            }}>
-              Designed by <span style={{ color: '#C28840' }}>Marchitechs</span>
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

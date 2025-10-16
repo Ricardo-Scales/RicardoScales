@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 function Music() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -837,6 +838,8 @@ function Music() {
       <div style={{ display: 'none' }} id="ytLayer-status">
         5 tracks processed | All successful | YouTube IFrame API integrated
       </div>
+
+      <Footer />
     </div>
   );
 }

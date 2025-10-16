@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -623,7 +624,7 @@ function Home() {
         </div>
       </section>
 
-
+      <Footer />
     </div>
   );
 }

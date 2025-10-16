@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 function Contact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -404,6 +405,8 @@ function Contact() {
           </p>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 }

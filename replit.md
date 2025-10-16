@@ -6,6 +6,15 @@ This is a React-based portfolio website for Ricardo Scales, "The Black Liberace,
 
 ## Recent Changes
 
+### October 2025 - Site Updates
+- **Footer Component**: Added unified footer across all pages with "All Rights Reserved" and Marchitechs branding
+  - Linked to https://marchtechs.builders
+  - Consistent styling across Home, Music, Bio, and Contact pages
+- **Home Page Enhancement**: Added "New Music" section featuring Pretty Funk
+  - Clickable thumbnail with play overlay leading to YouTube
+  - "Watch on YouTube" and "More Music" call-to-action buttons
+  - Positioned between Legacy and Musical Journey sections
+
 ### October 2025 - YouTube Music Player Enhancement
 - **Enhanced Music Page** with 5 clickable YouTube tracks featuring inline player
 - **Track Integration**: Pretty Funk, You'll Never Walk Alone, To Dream the Impossible Dream, You Are the One, When I Fall in Love
