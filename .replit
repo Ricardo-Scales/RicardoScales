@@ -10,30 +10,13 @@ channel = "stable-24_05"
 language = "nodejs"
 
 [deployment]
-deploymentTarget = "autoscale"
+deploymentTarget = "static"
 build = ["npm", "run", "build"]
 publicDir = "dist"
-run = ["npx", "serve", "-s", "dist"]
 
 [[ports]]
 localPort = 5000
 externalPort = 80
-
-[[ports]]
-localPort = 5001
-externalPort = 5000
-
-[[ports]]
-localPort = 5002
-externalPort = 5173
-
-[[ports]]
-localPort = 5003
-externalPort = 6000
-
-[[ports]]
-localPort = 5004
-externalPort = 6800
 
 [[ports]]
 localPort = 5173
@@ -60,8 +43,8 @@ localPort = 5178
 externalPort = 4200
 
 [[ports]]
-localPort = 43403
-externalPort = 8000
+localPort = 42855
+externalPort = 5000
 
 [workflows]
 runButton = "Project"
