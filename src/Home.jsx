@@ -254,6 +254,203 @@ function Home() {
         </div>
       </section>
 
+      {/* New Music Section */}
+      <section style={{
+        backgroundColor: '#1a1a1a',
+        padding: '80px 20px',
+        borderTop: '1px solid rgba(194, 136, 64, 0.3)',
+        borderBottom: '1px solid rgba(194, 136, 64, 0.3)'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center'
+        }}>
+          <h2 style={{
+            fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+            fontFamily: "'Playfair Display', serif",
+            color: '#C28840',
+            marginBottom: '20px',
+            fontWeight: '400'
+          }}>
+            New Music
+          </h2>
+          
+          <p style={{
+            fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+            color: 'rgba(255,255,255,0.8)',
+            marginBottom: '40px',
+            maxWidth: '700px',
+            lineHeight: '1.6'
+          }}>
+            Experience Ricardo's latest release - a funky fusion of jazz and soul that showcases his signature style
+          </p>
+
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '30px',
+            width: '100%',
+            maxWidth: '500px'
+          }}>
+            {/* Thumbnail with Play Overlay */}
+            <a 
+              href="https://www.youtube.com/watch?v=VqILw0ALfPQ" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '400px',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 8px 30px rgba(194, 136, 64, 0.3)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                display: 'block'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 12px 40px rgba(194, 136, 64, 0.5)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = '0 8px 30px rgba(194, 136, 64, 0.3)';
+              }}
+            >
+              <img 
+                src="/covers/VqILw0ALfPQ.webp" 
+                alt="Pretty Funk by Ricardo Scales"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block'
+                }}
+              />
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'rgba(0,0,0,0.3)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'background-color 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.5)'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.3)'}>
+                <div style={{
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '50%',
+                  backgroundColor: '#C28840',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'transform 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+                  <div style={{
+                    width: '0',
+                    height: '0',
+                    borderLeft: '24px solid white',
+                    borderTop: '15px solid transparent',
+                    borderBottom: '15px solid transparent',
+                    marginLeft: '6px'
+                  }}></div>
+                </div>
+              </div>
+            </a>
+
+            {/* Song Title and Details */}
+            <div>
+              <h3 style={{
+                fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                fontFamily: "'Playfair Display', serif",
+                color: 'white',
+                marginBottom: '10px',
+                fontWeight: '600'
+              }}>
+                Pretty Funk
+              </h3>
+              <p style={{
+                fontSize: '1rem',
+                color: 'rgba(255,255,255,0.7)',
+                marginBottom: '25px'
+              }}>
+                Ricardo Scales
+              </p>
+            </div>
+
+            {/* Call to Action Buttons */}
+            <div style={{
+              display: 'flex',
+              gap: '15px',
+              flexWrap: 'wrap',
+              justifyContent: 'center'
+            }}>
+              <a 
+                href="https://www.youtube.com/watch?v=VqILw0ALfPQ" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  backgroundColor: '#C28840',
+                  color: 'white',
+                  padding: '12px 30px',
+                  textDecoration: 'none',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  borderRadius: '30px',
+                  transition: 'all 0.3s ease',
+                  display: 'inline-block'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = '#d49a4d';
+                  e.target.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = '#C28840';
+                  e.target.style.transform = 'translateY(0)';
+                }}
+              >
+                Watch on YouTube
+              </a>
+              <Link 
+                to="/music"
+                style={{
+                  backgroundColor: 'transparent',
+                  color: '#C28840',
+                  border: '2px solid #C28840',
+                  padding: '12px 30px',
+                  textDecoration: 'none',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  borderRadius: '30px',
+                  transition: 'all 0.3s ease',
+                  display: 'inline-block'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = '#C28840';
+                  e.target.style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = 'transparent';
+                  e.target.style.color = '#C28840';
+                }}
+              >
+                More Music
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Musical Journey Section */}
       <section style={{
         backgroundColor: '#000000',
