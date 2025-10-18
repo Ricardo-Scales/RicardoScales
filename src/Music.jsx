@@ -20,21 +20,21 @@ function Music() {
     },
     { 
       id: 2, 
-      title: "You'll Never Walk Alone", 
+      title: "Mujer Latina", 
       artist: "Ricardo Scales",
-      youtubeId: "31W7c0EU8o8", 
-      duration: "4:12", 
-      plays: "8,123,456",
-      thumb: "/covers/31W7c0EU8o8.webp"
+      youtubeId: "ezu8C7bQl7Y", 
+      duration: "4:20", 
+      plays: "7,890,123",
+      thumb: "/covers/ezu8C7bQl7Y.webp"
     },
     { 
       id: 3, 
-      title: "To Dream the Impossible Dream", 
+      title: "Opening Temptations", 
       artist: "Ricardo Scales",
-      youtubeId: "xVrFplo_lnQ", 
-      duration: "5:08", 
-      plays: "6,789,012",
-      thumb: "/covers/xVrFplo_lnQ.webp"
+      youtubeId: "47-KYC1gtrY", 
+      duration: "5:15", 
+      plays: "6,543,210",
+      thumb: "/covers/47-KYC1gtrY.webp"
     },
     { 
       id: 4, 
